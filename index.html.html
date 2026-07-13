@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>إدارة العملاء</title>
+</head>
+<body>
+  <h1>مرحبًا بك في نظام إدارة العملاء</h1>
+
+  <form id="customerForm">
+    <input type="text" id="name" placeholder="اسم العميل" required>
+    <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+    <button type="submit">إضافة عميل</button>
+  </form>
+
+  <h2>قائمة العملاء</h2>
+  <ul id="customerList"></ul>
+
+  <!-- ربط Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCQ0W8tkB0kqAWyyzTLF_j0_89ZfuvE",
+      authDomain: "customer-management-1e770.firebaseapp.com",
+      projectId: "1e770",
+      storageBucket: "customer-management-1e770.firebasestorage.app",
+      messagingSenderId: "137516579931",
+      appId: "1:137516579931:web:b0b071da0b618f2778656c",
+      measurementId: "G-986295242P"
+    };
+
+    // تهيئة التطبيق
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // إضافة عميل جديد
+    const form = document.getElementById("customerForm");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+
+      await addDoc(collection(db, "customers"), { name, email });
+      alert("تم إضافة العميل بنجاح!");
+      form.reset();
+      loadCustomers();
+    });
+
+    // عرض العملاء
+    async function loadCustomers() {
+      const list = document.getElementById("customerList");
+      list.innerHTML = "";
+      const querySnapshot = await getDocs(collection(db, "customers"));
+      querySnapshot.forEach((doc) => {
+        const li = document.createElement("li");
+        li.textContent = `${doc.data().name} - ${doc.data().email}`;
+        list.appendChild(li);
+      });
+    }
+
+    loadCustomers();
+  </script>
+</body>
+</html>

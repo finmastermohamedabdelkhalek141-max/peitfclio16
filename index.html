@@ -1,0 +1,2665 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)file:///C:/Users/hp/Downloads/index_4.html -->
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إدارة شيكات العملاء — قسم التسويق</title>
+<style>
+  :root{
+    --ink:#1b2430;
+    --ink-soft:#5b6572;
+    --paper:#f6f4ef;
+    --panel:#ffffff;
+    --line:#e2ddd1;
+    --brass:#a9773c;
+    --brass-dark:#7c561f;
+    --brass-soft:#f1e6d3;
+    --navy:#1f3a4d;
+    --navy-soft:#e8eef1;
+    --ok:#2f6d4f;
+    --ok-soft:#e5f1ea;
+    --warn:#a4471c;
+    --warn-soft:#fbeae1;
+    --due:#8a6d00;
+    --due-soft:#fbf3d9;
+    --radius:10px;
+    --shadow:0 1px 2px rgba(27,36,48,.06), 0 6px 20px -10px rgba(27,36,48,.18);
+    --serif:"Amiri","Traditional Arabic","Noto Naskh Arabic",Georgia,serif;
+    --sans:"IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 500px at 15% -10%, #fffdf8 0%, transparent 60%),
+      var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    min-height:100vh;
+    line-height:1.5;
+  }
+  ::selection{ background:var(--brass-soft); }
+
+  /* ---------- Shell ---------- */
+  .shell{ display:flex; min-height:100vh; }
+  .sidebar{
+    width:236px; flex:none;
+    background:linear-gradient(180deg,var(--navy) 0%, #172c3a 100%);
+    color:#eef3f5;
+    padding:22px 16px;
+    display:flex; flex-direction:column; gap:4px;
+    position:sticky; top:0; height:100vh;
+  }
+  .brand{
+    font-family:var(--serif);
+    font-size:20px;
+    letter-spacing:.3px;
+    padding:0 6px 18px;
+    border-bottom:1px solid rgba(255,255,255,.12);
+    margin-bottom:14px;
+  }
+  .brand small{
+    display:block; font-family:var(--sans); font-size:11px;
+    color:#9fb3bf; margin-top:4px; letter-spacing:.5px;
+  }
+  .nav-item{
+    display:flex; align-items:center; gap:10px;
+    padding:11px 12px; border-radius:8px;
+    color:#cfdde3; text-decoration:none; cursor:pointer;
+    font-size:14.5px; border:1px solid transparent;
+    background:transparent;
+    transition:background .12s ease, color .12s ease;
+  }
+  .nav-item:hover{ background:rgba(255,255,255,.06); color:#fff; }
+  .nav-item.active{
+    background:rgba(169,119,60,.22);
+    color:#fff;
+    border-color:rgba(169,119,60,.4);
+  }
+  .nav-item .dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--brass); flex:none;
+    opacity:0; transition:opacity .12s;
+  }
+  .nav-item.active .dot{ opacity:1; }
+  .nav-item-gold{
+    background:linear-gradient(90deg, rgba(169,119,60,.20), rgba(169,119,60,.05));
+    border:1px solid rgba(212,168,101,.45);
+    color:#f4e6c9; font-weight:700; letter-spacing:.2px;
+  }
+  .nav-item-gold:hover{
+    background:linear-gradient(90deg, rgba(169,119,60,.32), rgba(169,119,60,.08));
+    color:#fff;
+  }
+  .nav-item-gold.active{
+    background:linear-gradient(90deg, rgba(212,168,101,.4), rgba(212,168,101,.12));
+    border-color:#d4a865; color:#fff;
+  }
+  .nav-seal{ font-size:15px; color:#d4a865; flex:none; }
+  .nav-group-label{
+    font-size:11px; color:#7f95a1; letter-spacing:.6px;
+    padding:14px 12px 4px; text-transform:uppercase;
+  }
+  .sidebar-foot{
+    padding:12px 8px 0;
+    font-size:11.5px; color:#7f95a1;
+    border-top:1px solid rgba(255,255,255,.1);
+  }
+
+  /* ---------- Designer credit card ---------- */
+  .designer-card{
+    margin-top:auto;
+    padding:16px 14px 14px;
+    border-top:1px solid rgba(255,255,255,.12);
+    display:flex; flex-direction:column; align-items:center;
+    text-align:center; gap:8px;
+  }
+  .designer-card .avatar-ring{
+    width:76px; height:76px; border-radius:50%;
+    padding:3px;
+    background:linear-gradient(135deg,#d4a865 0%, #a9773c 55%, #7c561f 100%);
+    box-shadow:0 4px 14px -4px rgba(0,0,0,.5);
+  }
+  .designer-card .avatar-ring img{
+    width:100%; height:100%; border-radius:50%;
+    object-fit:cover; display:block;
+    border:2px solid #172c3a;
+  }
+  .designer-card .d-name{
+    font-family:var(--serif);
+    font-size:14.5px; color:#f4e6c9; font-weight:700;
+    letter-spacing:.2px; line-height:1.35;
+  }
+  .designer-card .d-title{
+    font-size:11px; color:#9fb3bf;
+    letter-spacing:.4px;
+  }
+  .designer-card .d-tag{
+    margin-top:2px;
+    font-size:10px; color:#d4a865;
+    letter-spacing:.6px;
+    display:flex; align-items:center; gap:5px;
+  }
+  .designer-card .d-tag::before, .designer-card .d-tag::after{
+    content:""; height:1px; width:16px;
+    background:rgba(212,168,101,.5);
+  }
+
+  .main{ flex:1; min-width:0; }
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 30px; border-bottom:1px solid var(--line);
+    background:rgba(246,244,239,.85); backdrop-filter:blur(6px);
+    position:sticky; top:0; z-index:5;
+  }
+  .topbar h1{ font-family:var(--serif); font-size:22px; margin:0; font-weight:600; }
+  .topbar .sub{ color:var(--ink-soft); font-size:13px; margin-top:2px; }
+  .content{ padding:26px 30px 70px; max-width:1180px; }
+
+  /* ---------- Basics ---------- */
+  .card{
+    background:var(--panel); border:1px solid var(--line);
+    border-radius:var(--radius); box-shadow:var(--shadow);
+    padding:22px;
+  }
+  .card + .card{ margin-top:18px; }
+  .card h2{ font-family:var(--serif); font-size:18px; margin:0 0 4px; font-weight:600; }
+  .card .hint{ color:var(--ink-soft); font-size:13px; margin:0 0 16px; }
+
+  label{ display:block; font-size:12.5px; color:var(--ink-soft); margin-bottom:6px; font-weight:600; }
+  input, select, textarea{
+    width:100%; padding:10px 12px; border:1px solid #d7d1c2;
+    border-radius:8px; background:#fffefb; color:var(--ink);
+    font-family:var(--sans); font-size:14px; outline:none;
+    transition:border-color .12s, box-shadow .12s;
+  }
+  input:focus, select:focus, textarea:focus{
+    border-color:var(--brass); box-shadow:0 0 0 3px rgba(169,119,60,.15);
+  }
+  .field{ margin-bottom:14px; }
+  .row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .row3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+  @media (max-width:720px){ .row, .row3{ grid-template-columns:1fr; } }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 18px; border-radius:8px; border:1px solid transparent;
+    font-size:14px; font-weight:600; cursor:pointer;
+    font-family:var(--sans); transition:transform .06s ease, filter .12s ease;
+  }
+  .btn:active{ transform:translateY(1px); }
+  .btn-brass{ background:var(--brass); color:#fff; }
+  .btn-brass:hover{ filter:brightness(1.06); }
+  .btn-navy{ background:var(--navy); color:#fff; }
+  .btn-navy:hover{ filter:brightness(1.15); }
+  .btn-ghost{ background:transparent; border-color:#d7d1c2; color:var(--ink); }
+  .btn-ghost:hover{ background:#f1ede2; }
+  .btn-danger{ background:transparent; border-color:#e3b7a1; color:var(--warn); }
+  .btn-danger:hover{ background:var(--warn-soft); }
+  .btn[disabled]{ opacity:.45; cursor:not-allowed; }
+  .btn-sm{ padding:6px 12px; font-size:12.5px; }
+
+  .badge{
+    display:inline-flex; align-items:center; gap:6px;
+    padding:3px 10px; border-radius:999px; font-size:12px; font-weight:700;
+  }
+  .badge-ok{ background:var(--ok-soft); color:var(--ok); }
+  .badge-due{ background:var(--due-soft); color:var(--due); }
+  .badge-warn{ background:var(--warn-soft); color:var(--warn); }
+  .badge-idle{ background:#eee9dc; color:var(--ink-soft); }
+
+  table{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  th, td{ padding:10px 12px; text-align:right; border:1.5px solid var(--line); }
+  th{
+    font-size:11.5px; color:var(--ink-soft); text-transform:uppercase;
+    letter-spacing:.4px; font-weight:700; background:#fbf9f4;
+    position:sticky; top:0;
+  }
+  tbody tr:hover{ background:#faf7ef; }
+  .table-wrap{ overflow-x:auto; border:2px solid var(--line); border-radius:8px; }
+  .num{ font-variant-numeric:tabular-nums; }
+  .muted{ color:var(--ink-soft); }
+  .center{ text-align:center; }
+
+  .empty{
+    text-align:center; padding:50px 20px; color:var(--ink-soft);
+  }
+  .empty .ico{ font-size:34px; margin-bottom:10px; }
+
+  .kpi-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:18px; }
+  @media (max-width:900px){ .kpi-grid{ grid-template-columns:repeat(2,1fr); } }
+  .kpi{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:16px 18px; box-shadow:var(--shadow);
+  }
+  .kpi .lbl{ font-size:12px; color:var(--ink-soft); margin-bottom:6px; }
+  .kpi .val{ font-family:var(--serif); font-size:24px; font-weight:700; }
+  .kpi .val small{ font-size:13px; font-weight:500; color:var(--ink-soft); }
+
+  .toast{
+    position:fixed; bottom:22px; left:50%; transform:translateX(-50%);
+    background:var(--ink); color:#fff; padding:11px 20px; border-radius:8px;
+    font-size:13.5px; box-shadow:0 8px 24px rgba(0,0,0,.25);
+    z-index:999; opacity:0; pointer-events:none; transition:opacity .2s, transform .2s;
+  }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(-6px); }
+
+  .modal-bg{
+    position:fixed; inset:0; background:rgba(20,26,32,.5);
+    display:flex; align-items:center; justify-content:center; z-index:100;
+    padding:20px;
+  }
+  .modal{
+    background:var(--panel); border-radius:12px; max-width:480px; width:100%;
+    padding:24px; box-shadow:0 20px 60px rgba(0,0,0,.3);
+  }
+  .modal h3{ font-family:var(--serif); margin:0 0 8px; font-size:18px; }
+  .modal p{ color:var(--ink-soft); font-size:14px; margin:0 0 18px; }
+  .modal-actions{ display:flex; gap:10px; justify-content:flex-start; }
+
+  .search-box{ position:relative; }
+  .client-hit{
+    padding:10px 14px; border-bottom:1px solid var(--line); cursor:pointer;
+    display:flex; justify-content:space-between; font-size:13.5px;
+  }
+  .client-hit:hover{ background:#faf7ef; }
+  .client-hit .code{ color:var(--brass-dark); font-weight:700; font-family:monospace; }
+  .dropdown{
+    position:absolute; top:calc(100% + 4px); right:0; left:0;
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    box-shadow:var(--shadow); max-height:260px; overflow-y:auto; z-index:20;
+  }
+
+  .receipt-note{
+    background:var(--brass-soft); border:1px solid #e3cfa4; border-radius:8px;
+    padding:12px 14px; font-size:12.5px; color:#5c4623; line-height:1.7; margin-top:16px;
+  }
+
+  .tag-flex{ display:flex; flex-wrap:wrap; gap:8px; }
+  .tag{
+    padding:4px 10px; border-radius:999px; font-size:12px; font-weight:600;
+    background:var(--navy-soft); color:var(--navy);
+  }
+
+  .print-only{ display:none; }
+
+  @media print{
+    body *{ visibility:hidden; }
+    #printArea, #printArea *{ visibility:visible; }
+    #printArea{ position:absolute; top:0; right:0; left:0; margin:0; padding:0; }
+    .no-print{ display:none !important; }
+
+    @page{
+      size:A4;
+      margin:14mm 12mm 18mm 12mm;
+    }
+    @page{
+      @bottom-center{
+        content:"صفحة " counter(page);
+        font-family:Tahoma, Arial, sans-serif;
+        font-size:10px;
+        color:#666666;
+      }
+    }
+
+    .receipt-doc{ border:none !important; padding:0 !important; max-width:none !important; }
+
+    .receipt-page{
+      border:2px solid var(--navy);
+      padding:22px 26px;
+      box-sizing:border-box;
+      min-height:255mm;
+      background:#fffefb;
+    }
+    .receipt-page-break{
+      page-break-before:always;
+      break-before:page;
+    }
+  }
+
+  .receipt-doc{
+    font-family:var(--serif);
+    border:2px solid var(--navy);
+    padding:34px;
+    max-width:720px;
+    margin:0 auto;
+    background:#fffefb;
+    text-align:center;
+    font-size:12px;
+    font-weight:700;
+    position:relative;
+  }
+  /* ---------- Collection Receipt ("إيصال تحصيل") — premium certificate design ---------- */
+  .tc-wrap{ max-width:740px; margin:0 auto; padding:8px; position:relative; }
+  .tc-frame{
+    position:relative; overflow:hidden;
+    border:3px double var(--navy); border-radius:6px;
+    padding:20px 26px 16px; background:#fffefb;
+  }
+  .tc-frame::before{
+    content:""; position:absolute; inset:9px;
+    border:1px solid var(--brass); border-radius:3px; pointer-events:none;
+  }
+  .tc-corner{ position:absolute; width:36px; height:36px; z-index:1; }
+  .tc-corner.tl{ top:4px; right:4px; }
+  .tc-corner.tr{ top:4px; left:4px; transform:scaleX(-1); }
+  .tc-corner.bl{ bottom:4px; right:4px; transform:scaleY(-1); }
+  .tc-corner.br{ bottom:4px; left:4px; transform:scale(-1,-1); }
+  .tc-watermark{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif); font-size:58px; font-weight:800; color:var(--navy);
+    opacity:.045; transform:rotate(-28deg); white-space:nowrap; pointer-events:none; z-index:0;
+  }
+  .tc-body{ position:relative; z-index:2; text-align:center; }
+  .tc-paid{
+    position:absolute; top:10px; left:10px; z-index:3;
+    border:3px double var(--ok); color:var(--ok); border-radius:8px;
+    padding:5px 12px; font-family:var(--sans); font-size:12px; font-weight:800;
+    transform:rotate(-12deg); background:rgba(255,255,255,.88);
+  }
+  .tc-logo{ max-width:130px; height:auto; margin:0 auto 6px; display:block; }
+  .tc-ribbon{
+    display:inline-block; margin:2px auto 4px;
+    background:linear-gradient(135deg, var(--brass), var(--brass-dark));
+    color:#fff; font-family:var(--sans); font-size:14px; font-weight:800;
+    letter-spacing:.5px; padding:6px 26px; border-radius:3px;
+    box-shadow:0 3px 10px rgba(124,86,31,.35);
+  }
+  .tc-co{ font-family:var(--sans); font-size:12px; font-weight:700; color:var(--ink-soft); margin-top:6px; }
+  .tc-co-details{ font-family:var(--sans); font-size:12px; font-weight:700; color:var(--ink-soft); margin-top:3px; line-height:1.6; }
+  .tc-refno{
+    font-family:var(--sans); font-size:12px; font-weight:700; color:var(--ink-soft);
+    margin-top:8px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:5px 0;
+  }
+  .tc-table{ width:100%; border-collapse:collapse; margin:12px 0; font-family:var(--sans); font-size:12px; font-weight:700; }
+  .tc-table td{ border:1.5px solid #8a7c5c; padding:5px 10px; text-align:center; }
+  .tc-table td.k{ background:var(--navy-soft); font-weight:800; width:27%; }
+  .tc-table td.v{ background:#fffefb; }
+  .tc-amount{
+    margin:12px auto; max-width:540px; position:relative;
+    border:2px solid var(--brass); border-radius:6px;
+    background:linear-gradient(180deg, var(--brass-soft), #fff);
+    padding:9px 18px;
+  }
+  .tc-amount .figure{ font-size:14px; font-weight:800; color:var(--brass-dark); }
+  .tc-amount .words{ font-size:12px; font-weight:700; margin-top:5px; color:var(--ink); line-height:1.6; }
+  .tc-clarify{
+    margin-top:9px; padding:8px 14px; border:1px solid #b9d6c3;
+    background:var(--ok-soft); font-family:var(--sans); font-size:12px; font-weight:700;
+    color:#1f4a34; line-height:1.6; border-radius:6px;
+  }
+  .tc-foot{ display:flex; align-items:flex-end; justify-content:space-between; margin-top:16px; gap:16px; }
+  .tc-sign{ flex:1; font-family:var(--sans); font-size:12px; font-weight:700; }
+  .tc-sign .line{ border-top:1px solid var(--ink); padding-top:5px; color:var(--ink-soft); }
+  .tc-seal{
+    flex:none; width:68px; height:68px; border-radius:50%;
+    border:2px solid var(--brass-dark); position:relative;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--sans); font-size:9px; font-weight:800; color:var(--brass-dark);
+    text-align:center; line-height:1.3; padding:4px;
+  }
+  .tc-seal::before{ content:""; position:absolute; inset:5px; border:1px dashed var(--brass-dark); border-radius:50%; }
+  .tc-legal{
+    margin-top:10px; padding:8px 14px; border:1px dashed var(--warn);
+    background:var(--warn-soft); font-family:var(--sans); font-size:12px; font-weight:700;
+    color:#6b2f10; line-height:1.6; border-radius:6px;
+  }
+  @media print{
+    .tc-wrap{ page-break-inside:avoid; break-inside:avoid; }
+  }
+  .receipt-head{
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    border-bottom:2px solid var(--brass); padding-bottom:14px; margin-bottom:18px;
+  }
+  .receipt-head h2{ margin:0; font-size:14px; font-weight:800; }
+  .receipt-head .co{ font-size:12px; font-weight:700; color:var(--ink-soft); font-family:var(--sans); margin-top:4px; }
+  .receipt-logo{ display:block; max-width:230px; height:auto; margin:0 auto 10px; }
+  .receipt-head .co-details{ font-size:12px; font-weight:700; color:var(--ink-soft); font-family:var(--sans); margin-top:6px; line-height:1.7; }
+  .receipt-no{ text-align:center; font-family:var(--sans); font-size:12px; font-weight:700; color:var(--ink-soft); margin-top:10px; }
+  .receipt-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px 24px; margin:18px 0; font-family:var(--sans); font-size:12px; text-align:center; }
+  .receipt-grid .k{ color:var(--ink-soft); font-size:12px; font-weight:700; display:block; margin-bottom:2px; }
+  .receipt-grid .v{ font-weight:800; font-size:12px; }
+  .receipt-section-title{
+    font-family:var(--serif); font-size:14px; font-weight:800; text-align:center;
+    margin:22px 0 10px; color:var(--ink);
+  }
+  .receipt-table{ width:100%; border-collapse:collapse; margin:16px 0; font-family:var(--sans); font-size:12px; font-weight:700; }
+  .receipt-table th, .receipt-table td{ border:2px solid #8a7c5c; padding:8px 10px; text-align:center; }
+  .receipt-table th{ background:var(--navy-soft); font-size:14px; font-weight:800; }
+  .receipt-sign{ display:flex; justify-content:space-between; margin-top:40px; font-family:var(--sans); font-size:12px; font-weight:700; }
+  .receipt-sign .line{ border-top:1px solid var(--ink); width:180px; padding-top:6px; text-align:center; color:var(--ink-soft); }
+  .legal-note{
+    margin-top:22px; padding:12px 14px; border:1px dashed var(--warn);
+    background:var(--warn-soft); font-family:var(--sans); font-size:12px; font-weight:700;
+    color:#6b2f10; line-height:1.7; border-radius:6px; text-align:center;
+  }
+
+  /* ---------- Receipts Archive (prestigious) ---------- */
+  .archive-hero{
+    position:relative; overflow:hidden;
+    background:linear-gradient(135deg, var(--navy) 0%, #16303f 55%, #10222d 100%);
+    border:1px solid rgba(212,168,101,.35);
+    border-radius:14px; padding:26px 28px; margin-bottom:18px;
+    box-shadow:0 10px 30px -12px rgba(23,44,58,.5);
+  }
+  .archive-hero::before{
+    content:"۞"; position:absolute; left:-10px; top:-24px;
+    font-size:150px; color:rgba(212,168,101,.08); line-height:1;
+  }
+  .archive-hero-top{ display:flex; align-items:center; gap:12px; position:relative; z-index:1; }
+  .archive-seal{
+    width:44px; height:44px; border-radius:50%; flex:none;
+    background:radial-gradient(circle at 30% 30%, #e8c98a, #a9773c 70%, #7c561f);
+    display:flex; align-items:center; justify-content:center;
+    font-size:20px; color:#2b1c08; box-shadow:0 2px 6px rgba(0,0,0,.35), inset 0 1px 2px rgba(255,255,255,.4);
+  }
+  .archive-hero h2{
+    font-family:var(--serif); font-size:20px; margin:0; color:#fdf8ef; font-weight:700;
+  }
+  .archive-hero .tagline{ font-size:12.5px; color:#b9cdd6; margin-top:3px; }
+  .archive-hero .legal-blurb{
+    position:relative; z-index:1; font-size:12px; color:#a9bcc6; line-height:1.8;
+    margin-top:16px; padding-top:14px; border-top:1px dashed rgba(212,168,101,.35);
+  }
+  .archive-kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:18px; position:relative; z-index:1; }
+  @media (max-width:900px){ .archive-kpis{ grid-template-columns:1fr; } }
+  .archive-kpi{
+    background:rgba(255,255,255,.06); border:1px solid rgba(212,168,101,.28); border-radius:10px;
+    padding:12px 15px;
+  }
+  .archive-kpi .lbl{ font-size:11.5px; color:#a9bcc6; margin-bottom:5px; }
+  .archive-kpi .val{ font-family:var(--serif); font-size:19px; font-weight:700; color:#f4e6c9; }
+  .archive-kpi .val small{ font-size:12px; color:#b9cdd6; font-weight:500; }
+
+  .receipt-ledger{ display:flex; flex-direction:column; gap:12px; }
+  .receipt-card{
+    display:flex; align-items:center; gap:16px;
+    background:var(--panel); border:1px solid var(--line); border-right:4px solid var(--brass);
+    border-radius:10px; padding:15px 18px; box-shadow:var(--shadow);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .receipt-card:hover{ transform:translateY(-1px); box-shadow:0 4px 16px -6px rgba(27,36,48,.25); }
+  .receipt-card .rc-seq{
+    font-family:var(--serif); font-size:12.5px; color:var(--brass-dark); font-weight:700;
+    background:var(--brass-soft); border:1px solid #e3cfa4; border-radius:8px;
+    padding:8px 10px; text-align:center; flex:none; min-width:64px;
+  }
+  .receipt-card .rc-seq small{ display:block; font-size:9.5px; color:var(--ink-soft); font-weight:600; margin-top:2px; }
+  .receipt-card .rc-main{ flex:1; min-width:0; }
+  .receipt-card .rc-client{ font-weight:700; font-size:14.5px; color:var(--ink); }
+  .receipt-card .rc-client .code{ font-family:monospace; color:var(--brass-dark); font-weight:700; font-size:12.5px; margin-inline-start:6px; }
+  .receipt-card .rc-meta{ font-size:12.5px; color:var(--ink-soft); margin-top:3px; }
+  .receipt-card .rc-amount{ text-align:center; flex:none; }
+  .receipt-card .rc-amount .v{ font-family:var(--serif); font-weight:700; font-size:16.5px; color:var(--ink); }
+  .receipt-card .rc-amount .k{ font-size:10.5px; color:var(--ink-soft); }
+  .receipt-card .rc-actions{ flex:none; display:flex; gap:8px; }
+  @media (max-width:760px){
+    .receipt-card{ flex-wrap:wrap; }
+    .receipt-card .rc-actions{ width:100%; }
+    .receipt-card .rc-actions .btn{ flex:1; justify-content:center; }
+  }
+
+  .import-hint{ font-size:12px; color:var(--ink-soft); margin-top:6px; }
+  .toolbar{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:16px; }
+
+  /* ---- Client form: distinguished sections ---- */
+  .form-section{
+    border:1px solid var(--line); border-radius:10px; padding:18px 20px;
+    margin-bottom:18px; background:#fffefb;
+  }
+  .form-section.emphasis-brass{ border-color:#e3cfa4; background:var(--brass-soft); }
+  .form-section.emphasis-navy{ border-color:#c7d6dc; background:var(--navy-soft); }
+  .form-section-title{
+    font-family:var(--serif); font-size:15.5px; font-weight:700; margin:0 0 14px;
+    display:flex; align-items:center; gap:9px; color:var(--ink);
+  }
+  .form-section-title .num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:22px;height:22px;border-radius:50%; background:var(--brass); color:#fff;
+    font-size:12px; font-weight:700; font-family:var(--sans); flex:none;
+  }
+  .calc-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:9px 2px; border-bottom:1px dashed #d7cfba; font-size:13.5px;
+  }
+  .calc-row:last-of-type{ border-bottom:none; }
+  .calc-row .k{ color:var(--ink-soft); }
+  .calc-row .v{ font-weight:700; font-variant-numeric:tabular-nums; }
+  .totals-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:12px 14px; background:#fff; border:1px solid var(--line);
+    border-radius:8px; font-weight:700; margin-top:8px; font-size:14px;
+  }
+  .year-block{
+    border:1px solid var(--line); border-radius:9px; padding:15px 17px;
+    margin-bottom:12px; background:#fbf9f4;
+  }
+  .year-block h4{ margin:0 0 12px; font-family:var(--serif); font-size:14.5px; font-weight:700; }
+  .phase-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:6px; }
+  @media (max-width:720px){ .phase-grid{ grid-template-columns:1fr; } }
+  .toolbar .grow{ flex:1; min-width:200px; }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">قسم التسويق
+      <small>إدارة شيكات وخطط سداد العملاء</small>
+    </div>
+    <div class="nav-group-label">المستندات الرسمية</div>
+    <a class="nav-item nav-item-gold" data-view="receipts"><span class="nav-seal">۞</span> إيصالات استلام الشيكات</a>
+    <div class="nav-group-label">العمليات</div>
+    <a class="nav-item active" data-view="cheques"><span class="dot"></span> إدارة الشيكات</a>
+    <a class="nav-item" data-view="collect"><span class="dot"></span> تحصيل الشيكات</a>
+    <a class="nav-item" data-view="clients"><span class="dot"></span> العملاء وخطط السداد</a>
+    <div class="nav-group-label">التقارير</div>
+    <a class="nav-item" data-view="reportCheques"><span class="dot"></span> تقرير الشيكات</a>
+    <a class="nav-item" data-view="reportClients"><span class="dot"></span> تقرير العملاء</a>
+    <div class="designer-card">
+      <div class="avatar-ring">
+        <img src="data:image/jpeg;base64,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" alt="محمد عبد الخالق بسيوني">
+      </div>
+      <div class="d-name">محمد عبد الخالق بسيوني</div>
+      <div class="d-title">المدير المالي</div>
+      <div class="d-tag">مصمم ومطور النظام</div>
+    </div>
+    <div class="sidebar-foot">جاري تسجيل الدخول…</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <h1 id="pageTitle">إدارة الشيكات</h1>
+        <div class="sub" id="pageSub">ابحث عن العميل بالكود لعرض خطة السداد وتسجيل استلام شيك</div>
+      </div>
+      <div class="no-print" style="display:flex;gap:10px;">
+        <button class="btn btn-ghost btn-sm" id="btnSeed">تحميل بيانات تجريبية</button>
+      </div>
+    </div>
+    <div class="content" id="app">
+  <div class="card">
+    <h2>البحث عن العميل</h2>
+    <p class="hint">اكتب كود العميل فقط لعرض بيانات خطة السداد الخاصة به.</p>
+    <div class="row" style="align-items:end;">
+      <div class="field" style="margin-bottom:0;">
+        <label>كود العميل</label>
+        <input id="chqCode" placeholder="مثال: CL-1001" value="" autocomplete="off">
+      </div>
+      <div class="field" style="margin-bottom:0;">
+        <button class="btn btn-brass" id="btnFindClient">عرض بيانات العميل</button>
+      </div>
+    </div>
+  </div></div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+<div id="modalRoot"></div>
+<div id="printArea"></div>
+
+<div id="authGate" class="modal-bg no-print" style="display: flex; z-index: 500;">
+  <div class="modal" style="max-width:380px;text-align:center;">
+    <h3 id="authGateTitle">رابط غير صالح</h3>
+    <p id="authGateMsg">هذا الرابط لا يعطي صلاحية دخول. تواصل مع صاحب الحساب للحصول على رابطك الخاص.</p>
+  </div>
+</div>
+
+<script src="./index_files/firebase-app-compat.js.download"></script>
+<script src="./index_files/firebase-auth-compat.js.download"></script>
+<script src="./index_files/firebase-firestore-compat.js.download"></script>
+<script>
+(function(){
+"use strict";
+
+/* ============================= FIREBASE / ACCOUNTS / ROLES =============================
+   ثلاثة حسابات ثابتة: صاحب الحساب وموظفان. كل واحد له رابط خاص بيه فيه ?u=owner أو ?u=emp1 أو ?u=emp2.
+   أول مرة يفتح فيها أي حد الرابط بتاعه على أي جهاز، النظام بينشئ له الحساب تلقائيًا في Firebase
+   ويسجّل دخوله، وبعدين يفضل مسجّل دخول على نفس الجهاز/المتصفح تلقائيًا حتى بدون الرابط.
+   عايز تغيّر الأسماء أو كلمات المرور؟ عدّل القيم في USERS بس. */
+const firebaseConfig = {
+  apiKey: "AIzaSyDD0WHtBKXoAWwyxzILF-J0_89ZFuwbTyo",
+  authDomain: "customer-management-1e770.firebaseapp.com",
+  projectId: "customer-management-1e770",
+  storageBucket: "customer-management-1e770.firebasestorage.app",
+  messagingSenderId: "375156799331",
+  appId: "1:375156799331:web:b00b71da106b5182778556"
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+const USERS = {
+  owner: { email:"owner@binarha-app.local",  password:"Ow-Br2026#Nakheel!",  label:"صاحب الحساب" },
+  emp1:  { email:"emp1@binarha-app.local",   password:"Emp1-Br2026#Waha!",   label:"الموظف الأول" },
+  emp2:  { email:"emp2@binarha-app.local",   password:"Emp2-Br2026#Bousher!",label:"الموظف الثاني" }
+};
+const ROLE_STORAGE_KEY = "marketing_cheques_role_v1";
+const DOC_REF = db.collection("appData").doc("shared");
+
+let CURRENT_ROLE = null;
+let dataUnsub = null;
+
+function showAuthGate(title, msg){
+  document.getElementById("authGate").style.display = "flex";
+  document.getElementById("authGateTitle").textContent = title;
+  document.getElementById("authGateMsg").textContent = msg;
+}
+function hideAuthGate(){ document.getElementById("authGate").style.display = "none"; }
+
+async function signInAsRole(role){
+  const u = USERS[role];
+  if(!u) throw new Error("رابط غير صالح");
+  try{
+    await auth.signInWithEmailAndPassword(u.email, u.password);
+  }catch(err){
+    if(err.code === "auth/user-not-found" || err.code === "auth/invalid-credential" || err.code === "auth/invalid-login-credentials"){
+      await auth.createUserWithEmailAndPassword(u.email, u.password);
+    } else {
+      throw err;
+    }
+  }
+  localStorage.setItem(ROLE_STORAGE_KEY, role);
+}
+
+function roleFromEmail(email){
+  const found = Object.keys(USERS).find(k=>USERS[k].email===email);
+  return found || null;
+}
+
+function boot(){
+  const params = new URLSearchParams(location.search);
+  const linkRole = params.get("u");
+
+  showAuthGate("جاري تسجيل الدخول…", "فضلاً انتظر قليلاً.");
+
+  auth.onAuthStateChanged(async (user)=>{
+    try{
+      if(linkRole && USERS[linkRole] && (!user || roleFromEmail(user.email)!==linkRole)){
+        await signInAsRole(linkRole);
+        return; // سيُستدعى onAuthStateChanged تلقائيًا مرة أخرى بعد نجاح الدخول
+      }
+      if(!user){
+        const savedRole = localStorage.getItem(ROLE_STORAGE_KEY);
+        if(savedRole && USERS[savedRole]){
+          await signInAsRole(savedRole);
+          return;
+        }
+        showAuthGate("رابط غير صالح", "هذا الرابط لا يعطي صلاحية دخول. تواصل مع صاحب الحساب للحصول على رابطك الخاص.");
+        return;
+      }
+      CURRENT_ROLE = roleFromEmail(user.email);
+      if(!CURRENT_ROLE){
+        showAuthGate("حساب غير معروف", "هذا الحساب غير مرتبط بأي صلاحية في النظام.");
+        return;
+      }
+      hideAuthGate();
+      attachRoleBadge();
+      startDataSync();
+    }catch(err){
+      showAuthGate("تعذّر تسجيل الدخول", (err && err.message) ? err.message : "حدث خطأ غير متوقع.");
+    }
+  });
+}
+
+function attachRoleBadge(){
+  const foot = document.querySelector(".sidebar-foot");
+  if(!foot) return;
+  foot.innerHTML = `مسجَّل الدخول: <strong>${USERS[CURRENT_ROLE].label}</strong>
+    <br><a href="#" id="btnLogout" style="color:#d4a865;">تسجيل خروج</a>`;
+  document.getElementById("btnLogout").addEventListener("click", (e)=>{
+    e.preventDefault();
+    localStorage.removeItem(ROLE_STORAGE_KEY);
+    auth.signOut().then(()=>location.href = location.pathname);
+  });
+  const seedBtn = document.getElementById("btnSeed");
+  if(seedBtn && CURRENT_ROLE!=="owner") seedBtn.style.display = "none";
+}
+
+/* ============================= STORAGE (Firestore) =============================
+   البيانات كلها في مستند واحد مشترك على Firestore، وأي تغيير يحصل عند أي شخص
+   يوصل تلقائيًا (لحظيًا) لباقي الأجهزة المفتوح عندها الصفحة. */
+function blankState(){ return { clients:[], cheques:[], collections:[], nextClientSeq:1, nextChequeSeq:1, nextCollectionSeq:1 }; }
+
+let state = blankState();
+let firstSyncDone = false;
+let view = "cheques";
+let suppressNextSnapshotRender = false;
+
+function startDataSync(){
+  dataUnsub = DOC_REF.onSnapshot((snap)=>{
+    if(snap.exists){
+      const data = snap.data();
+      state = {
+        clients: data.clients||[], cheques: data.cheques||[], collections: data.collections||[],
+        nextClientSeq: data.nextClientSeq||1, nextChequeSeq: data.nextChequeSeq||1, nextCollectionSeq: data.nextCollectionSeq||1
+      };
+    } else {
+      state = blankState();
+    }
+    if(!firstSyncDone){
+      firstSyncDone = true;
+      setView("cheques");
+    } else if(!suppressNextSnapshotRender){
+      render();
+    }
+    suppressNextSnapshotRender = false;
+  }, (err)=>{
+    toast("تعذّر الاتصال بقاعدة البيانات: " + err.message);
+  });
+}
+
+function saveState(){
+  suppressNextSnapshotRender = true;
+  DOC_REF.set(state).catch((err)=>{
+    toast("تعذّر حفظ البيانات: " + err.message);
+  });
+}
+
+/* أقسام العرض حسب الصلاحية: صاحب الحساب يشوف كل حاجة، وكل موظف يشوف بس اللي هو سجّله */
+function visClients(){ return CURRENT_ROLE==="owner" ? state.clients : state.clients.filter(c=>c.ownerRole===CURRENT_ROLE); }
+function visCheques(){ return CURRENT_ROLE==="owner" ? state.cheques : state.cheques.filter(c=>c.ownerRole===CURRENT_ROLE); }
+function visCollections(){ return CURRENT_ROLE==="owner" ? state.collections : state.collections.filter(c=>c.ownerRole===CURRENT_ROLE); }
+
+/* ============================= HELPERS ============================= */
+function fmt(n){
+  n = Number(n)||0;
+  return n.toLocaleString("ar-OM",{minimumFractionDigits:0,maximumFractionDigits:3});
+}
+function todayISO(){ return new Date().toISOString().slice(0,10); }
+function fmtDate(d){
+  if(!d) return "—";
+  try{
+    const dt = new Date(d+"T00:00:00");
+    return dt.toLocaleDateString("ar-OM",{year:"numeric",month:"long",day:"numeric"});
+  }catch(e){ return d; }
+}
+function uid(prefix){ return prefix+"_"+Math.random().toString(36).slice(2,9); }
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toast._h);
+  toast._h = setTimeout(()=>t.classList.remove("show"), 2400);
+}
+function esc(s){
+  return String(s??"").replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+/* Convert a Rial Omani amount (rial + baisa, 1 rial = 1000 baisa) into formal Arabic words,
+   for use on the legal collection receipt ("المبلغ كتابة"). */
+function numberToArabicWords(amount){
+  amount = Math.round(Math.max(0, Number(amount)||0) * 1000) / 1000;
+  const rial = Math.floor(amount);
+  const baisa = Math.round((amount - rial) * 1000);
+
+  const ones = ["","واحد","اثنان","ثلاثة","أربعة","خمسة","ستة","سبعة","ثمانية","تسعة"];
+  const teens = ["عشرة","أحد عشر","اثنا عشر","ثلاثة عشر","أربعة عشر","خمسة عشر","ستة عشر","سبعة عشر","ثمانية عشر","تسعة عشر"];
+  const tens = ["","","عشرون","ثلاثون","أربعون","خمسون","ستون","سبعون","ثمانون","تسعون"];
+  const hundreds = ["","مائة","مئتان","ثلاثمائة","أربعمائة","خمسمائة","ستمائة","سبعمائة","ثمانمائة","تسعمائة"];
+
+  function threeDigits(n){
+    n = Math.floor(n);
+    if(n<=0) return "";
+    const h = Math.floor(n/100), rem = n%100, t = Math.floor(rem/10), o = rem%10;
+    const parts = [];
+    if(h>0) parts.push(hundreds[h]);
+    if(rem>=10 && rem<20){
+      parts.push(teens[rem-10]);
+    } else {
+      if(o>0) parts.push(ones[o]);
+      if(t>0) parts.push(tens[t]);
+    }
+    return parts.join(" و");
+  }
+
+  function integerWords(n){
+    if(n<=0) return "صفر";
+    const scales = [
+      {value:1000000000, singular:"مليار", dual:"ملياران", plural:"مليارات"},
+      {value:1000000, singular:"مليون", dual:"مليونان", plural:"ملايين"},
+      {value:1000, singular:"ألف", dual:"ألفان", plural:"آلاف"}
+    ];
+    let rest = n; const words = [];
+    scales.forEach(sc=>{
+      const count = Math.floor(rest/sc.value);
+      if(count>0){
+        rest = rest % sc.value;
+        if(count===1) words.push(sc.singular);
+        else if(count===2) words.push(sc.dual);
+        else if(count>=3 && count<=10) words.push(threeDigits(count)+" "+sc.plural);
+        else words.push(threeDigits(count)+" "+sc.singular);
+      }
+    });
+    if(rest>0) words.push(threeDigits(rest));
+    return words.join(" و") || "صفر";
+  }
+
+  let result = integerWords(rial) + " ريال عماني";
+  if(baisa>0) result += " و" + integerWords(baisa) + " بيسة";
+  result += " لا غير";
+  return result;
+}
+
+/* ============================= OMAN BANKS LIST ============================= */
+const COMPANY_LOGO_DATA_URI = "data:image/png;base64,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";
+
+const OMAN_BANKS = {
+  "بنوك محلية": [
+    "بنك مسقط",
+    "البنك الوطني العماني",
+    "بنك ظفار",
+    "بنك صحار الدولي",
+    "البنك العربي العماني",
+    "البنك الأهلي"
+  ],
+  "بنوك إسلامية": [
+    "بنك نزوى",
+    "بنك العز الإسلامي",
+    "ميثاق (الخدمات المصرفية الإسلامية - بنك مسقط)"
+  ],
+  "بنوك متخصصة": [
+    "بنك التنمية العماني",
+    "بنك الإسكان العماني"
+  ],
+  "فروع بنوك أجنبية": [
+    "HSBC عمان",
+    "بنك أبوظبي الأول - عمان",
+    "بنك قطر الوطني - عمان",
+    "ستاندرد تشارترد - عمان",
+    "ستيت بنك أوف إنديا - عمان",
+    "بنك حبيب المحدود - عمان",
+    "بنك بيروت عمان"
+  ]
+};
+const BANK_CASH_VALUE = "نقدًا (كاش)";
+const BANK_OTHER_VALUE = "__other__";
+
+function bankSelectHtml(selectedId, selectedValue){
+  const isKnown = Object.values(OMAN_BANKS).some(list=>list.includes(selectedValue)) || selectedValue===BANK_CASH_VALUE;
+  const isOther = selectedValue && !isKnown;
+  let html = `<select id="${selectedId}">`;
+  html += `<option value="">— اختر —</option>`;
+  html += `<option value="${esc(BANK_CASH_VALUE)}" ${selectedValue===BANK_CASH_VALUE?"selected":""}>${esc(BANK_CASH_VALUE)}</option>`;
+  Object.keys(OMAN_BANKS).forEach(group=>{
+    html += `<optgroup label="${esc(group)}">`;
+    OMAN_BANKS[group].forEach(b=>{
+      html += `<option value="${esc(b)}" ${selectedValue===b?"selected":""}>${esc(b)}</option>`;
+    });
+    html += `</optgroup>`;
+  });
+  html += `<option value="${BANK_OTHER_VALUE}" ${isOther?"selected":""}>بنك آخر (اكتب الاسم)</option>`;
+  html += `</select>
+    <input id="${selectedId}Other" placeholder="اكتب اسم البنك" style="margin-top:8px;${isOther?"":"display:none;"}" value="${isOther?esc(selectedValue):""}">`;
+  return html;
+}
+function bindBankSelect(selectId){
+  const sel = document.getElementById(selectId);
+  const other = document.getElementById(selectId+"Other");
+  if(!sel || !other) return;
+  sel.addEventListener("change", ()=>{
+    other.style.display = sel.value===BANK_OTHER_VALUE ? "block" : "none";
+    if(sel.value===BANK_OTHER_VALUE) other.focus();
+  });
+}
+function getBankValue(selectId){
+  const sel = document.getElementById(selectId);
+  const other = document.getElementById(selectId+"Other");
+  if(!sel) return "";
+  if(sel.value===BANK_OTHER_VALUE) return (other?.value||"").trim();
+  return sel.value;
+}
+
+/* Payment status helpers for an installment */
+function installmentStatus(inst){
+  const paid = inst.paidAmount||0;
+  if(paid >= inst.amount - 0.5) return "paid";
+  if(paid > 0) return "partial";
+  const due = inst.dueDate;
+  if(due && due < todayISO()) return "overdue";
+  return "upcoming";
+}
+function statusBadge(status){
+  const map = {
+    paid:      ['badge-ok','مسدد بالكامل'],
+    partial:   ['badge-due','مسدد جزئيًا'],
+    overdue:   ['badge-warn','متأخر'],
+    upcoming:  ['badge-idle','لم يحين موعدها'],
+  };
+  const [cls,label] = map[status]||map.upcoming;
+  return `<span class="badge ${cls}">${label}</span>`;
+}
+
+/* For a still-pending cheque, derive its collection urgency from its due date (chequeDate):
+   - overdue (due date already passed): "متأخرة"
+   - within 5 days of (or on) the due date: "قيد تحصيل"
+   - more than 5 days away (or no due date set): "لم يحين موعدها" */
+function pendingChequeUrgency(chequeDate){
+  if(!chequeDate) return "upcoming";
+  const due = new Date(chequeDate+"T00:00:00");
+  const today = new Date(todayISO()+"T00:00:00");
+  const diffDays = Math.round((due-today)/(1000*60*60*24));
+  if(diffDays < 0) return "late";
+  if(diffDays <= 5) return "collecting";
+  return "upcoming";
+}
+
+/* Cheque collection status: pending (received, awaiting bank clearance — shown with a
+   dynamic urgency sub-label based on its due date), collected (cashed successfully),
+   bounced (returned/rejected by bank). Pass the cheque object (or {status, chequeDate}). */
+function chequeStatusBadge(chq){
+  if(typeof chq === "string") chq = {status:chq, chequeDate:null}; // backward-compat call style
+  const status = chq.status || "pending";
+  if(status==="collected") return `<span class="badge badge-ok">تم التحصيل</span>`;
+  if(status==="bounced") return `<span class="badge badge-warn">مرتد</span>`;
+  const urgencyMap = {
+    late:       ['badge-warn','متأخرة'],
+    collecting: ['badge-due','قيد تحصيل'],
+    upcoming:   ['badge-idle','لم يحين موعدها'],
+  };
+  const [cls,label] = urgencyMap[pendingChequeUrgency(chq.chequeDate)];
+  return `<span class="badge ${cls}">${label}</span>`;
+}
+
+/* Build a client's installment plan from stored assumptions.
+   Structure mirrors the uploaded model: reservation + down payment + N years, each year split into
+   3 flexible phases (3 months / 3 months / 5 months) chosen by the client, plus an auto-computed
+   final (12th) installment = year total - sum of the 11 flexible installments. */
+function buildPlan(client){
+  const installments = [];
+  let seq = 1;
+  installments.push({
+    id: client.id+"_res", seq: seq++, type:"حجز", label:"دفعة الحجز",
+    year:null, month:null, amount: client.reservation, dueDate: client.contractDate || null
+  });
+  installments.push({
+    id: client.id+"_down", seq: seq++, type:"مقدم", label:"دفعة المقدم",
+    year:null, month:null, amount: client.downPayment, dueDate: client.contractDate || null
+  });
+  const startDate = client.installmentsStartDate ? new Date(client.installmentsStartDate+"T00:00:00") : (client.contractDate ? new Date(client.contractDate+"T00:00:00") : new Date());
+  let cursor = new Date(startDate);
+  const yearPlans = client.yearPlans || [];
+  for(let y=1; y<=client.years; y++){
+    const yp = yearPlans[y-1] || {phase1:0, phase2:0, phase3:0, lastInstallment:0};
+    for(let m=1; m<=12; m++){
+      const due = new Date(cursor);
+      let amt;
+      if(m<=3) amt = yp.phase1||0;
+      else if(m<=6) amt = yp.phase2||0;
+      else if(m<=11) amt = yp.phase3||0;
+      else amt = yp.lastInstallment||0;
+      installments.push({
+        id: client.id+"_y"+y+"m"+m, seq: seq++, type:"قسط شهري",
+        label: `السنة ${arabicYear(y)} — شهر ${m}`,
+        year:y, month:m, amount: Math.round(amt*100)/100,
+        dueDate: due.toISOString().slice(0,10)
+      });
+      cursor.setMonth(cursor.getMonth()+1);
+    }
+  }
+  return installments;
+}
+function arabicYear(y){ return ["الأولى","الثانية","الثالثة","الرابعة","الخامسة","السادسة"][y-1] || y; }
+
+/* Attach paid amounts from recorded cheques to a plan */
+function planWithPayments(client){
+  const plan = buildPlan(client);
+  const activeCheques = state.cheques.filter(c=>c.clientId===client.id && c.status!=="bounced");
+  const collectedCheques = activeCheques.filter(c=>c.status==="collected");
+  const byInstCovered = {}, byInstPaid = {};
+  activeCheques.forEach(c=>{
+    (c.allocations||[]).forEach(a=>{
+      byInstCovered[a.installmentId] = (byInstCovered[a.installmentId]||0) + a.amount;
+    });
+  });
+  collectedCheques.forEach(c=>{
+    (c.allocations||[]).forEach(a=>{
+      byInstPaid[a.installmentId] = (byInstPaid[a.installmentId]||0) + a.amount;
+    });
+  });
+  plan.forEach(inst=>{
+    inst.coveredAmount = byInstCovered[inst.id]||0; // has a cheque assigned (pending or collected)
+    inst.paidAmount = byInstPaid[inst.id]||0;        // actually collected from the bank
+  });
+  return plan;
+}
+
+function clientTotals(client){
+  const plan = planWithPayments(client);
+  const totalDue = plan.reduce((s,i)=>s+i.amount,0);
+  const totalPaid = plan.reduce((s,i)=>s+i.paidAmount,0);
+  const overdue = plan.filter(i=>installmentStatus(i)==="overdue").reduce((s,i)=>s+(i.amount-i.paidAmount),0);
+  return { totalDue, totalPaid, remaining: totalDue-totalPaid, overdue, plan };
+}
+
+function findClientByCode(code){
+  code = (code||"").trim();
+  if(!code) return null;
+  return visClients().find(c=>c.code.toLowerCase() === code.toLowerCase()) || null;
+}
+
+/* ============================= SEED DATA ============================= */
+function seedDemo(){
+  if(state.clients.length){
+    if(!confirm("سيتم إضافة بيانات تجريبية إلى البيانات الحالية. متابعة؟")) return;
+  }
+  const c1id = uid("cl");
+  const c2id = uid("cl");
+  state.clients.push({
+    ownerRole: CURRENT_ROLE,
+    id:c1id, code:"CL-1001", name:"أحمد محمد السيد", unit:"شقة A-204 — كمبوند النخيل",
+    phone:"968 9123 4567", contractNumber:"CN-2025-0451", contractDate:"2025-01-15",
+    unitPrice:1500000,
+    reservationPct:0.05, reservation:75000,
+    downPaymentPct:0.10, downPayment:150000,
+    remainingPct:0.85, remaining:1275000, chequesCount:36, years:3,
+    yearPlans:[
+      {percent:0.40, amount:510000, phase1:42500, phase2:42500, phase3:42500, lastInstallment:42500},
+      {percent:0.35, amount:446250, phase1:37187.5, phase2:37187.5, phase3:37187.5, lastInstallment:37187.5},
+      {percent:0.25, amount:318750, phase1:26562.5, phase2:26562.5, phase3:26562.5, lastInstallment:26562.5}
+    ],
+    installmentsStartDate:"2025-02-15",
+    createdAt: new Date().toISOString()
+  });
+  state.clients.push({
+    ownerRole: CURRENT_ROLE,
+    id:c2id, code:"CL-1002", name:"منى عبد الرحمن", unit:"فيلا B-12 — كمبوند الواحة",
+    phone:"968 9988 1122", contractNumber:"CN-2024-0389", contractDate:"2024-11-01",
+    unitPrice:2400000,
+    reservationPct:0.05, reservation:120000,
+    downPaymentPct:0.10, downPayment:240000,
+    remainingPct:0.85, remaining:2040000, chequesCount:48, years:4,
+    yearPlans:[
+      {percent:0.30, amount:612000, phase1:51000, phase2:51000, phase3:51000, lastInstallment:51000},
+      {percent:0.25, amount:510000, phase1:42500, phase2:42500, phase3:42500, lastInstallment:42500},
+      {percent:0.25, amount:510000, phase1:42500, phase2:42500, phase3:42500, lastInstallment:42500},
+      {percent:0.20, amount:408000, phase1:34000, phase2:34000, phase3:34000, lastInstallment:34000}
+    ],
+    installmentsStartDate:"2024-12-01",
+    createdAt: new Date().toISOString()
+  });
+  // A couple of recorded cheques for client 1
+  const plan1 = buildPlan(state.clients.find(c=>c.id===c1id));
+  state.cheques.push({
+    ownerRole: CURRENT_ROLE,
+    id: uid("chk"), clientId:c1id, chequeNumber:"0451236", bank:"بنك مسقط",
+    amount: plan1[0].amount, receivedDate:"2025-01-15", chequeDate:"2025-01-15", notes:"",
+    allocations:[{installmentId:plan1[0].id, amount:plan1[0].amount}],
+    status:"collected", collectedDate:"2025-01-16", bounceDate:null, bounceReason:"",
+    seq: state.nextChequeSeq++, createdAt:new Date().toISOString()
+  });
+  state.cheques.push({
+    ownerRole: CURRENT_ROLE,
+    id: uid("chk"), clientId:c1id, chequeNumber:"0451237", bank:"بنك مسقط",
+    amount: plan1[1].amount, receivedDate:"2025-01-15", chequeDate:"2025-02-01", notes:"",
+    allocations:[{installmentId:plan1[1].id, amount:plan1[1].amount}],
+    status:"pending", collectedDate:null, bounceDate:null, bounceReason:"",
+    seq: state.nextChequeSeq++, createdAt:new Date().toISOString()
+  });
+  saveState();
+  toast("تم تحميل بيانات تجريبية");
+  render();
+}
+document.getElementById("btnSeed").addEventListener("click", seedDemo);
+
+/* ============================= NAV ============================= */
+document.querySelectorAll(".nav-item").forEach(el=>{
+  el.addEventListener("click", ()=>{ setView(el.dataset.view); });
+});
+function setView(v){
+  view = v;
+  document.querySelectorAll(".nav-item").forEach(el=>{
+    el.classList.toggle("active", el.dataset.view===v);
+  });
+  const titles = {
+    cheques:["إدارة الشيكات","ابحث عن العميل بالكود لعرض خطة السداد وتسجيل استلام شيك"],
+    collect:["تحصيل الشيكات","متابعة كل الشيكات المستلمة وتسجيل تحصيلها أو ارتدادها من البنك"],
+    clients:["العملاء وخطط السداد","إضافة عميل جديد وضبط بيانات خطة السداد الخاصة به"],
+    reportCheques:["تقرير الشيكات","كل الشيكات المستلمة عبر جميع العملاء"],
+    reportClients:["تقرير العملاء","ملخص الحالة المالية لكل عميل"],
+    receipts:["إيصالات استلام الشيكات","السجل الرسمي الموثّق لكل إيصال صادر عن استلام شيك من عميل"],
+  };
+  document.getElementById("pageTitle").textContent = titles[v][0];
+  document.getElementById("pageSub").textContent = titles[v][1];
+  render();
+}
+
+/* ============================= RENDER ROOT ============================= */
+function render(){
+  const app = document.getElementById("app");
+  if(view==="cheques") app.innerHTML = renderChequesScreen();
+  else if(view==="collect") app.innerHTML = renderCollectScreen();
+  else if(view==="clients") app.innerHTML = renderClientsScreen();
+  else if(view==="reportCheques") app.innerHTML = renderChequesReport();
+  else if(view==="reportClients") app.innerHTML = renderClientsReport();
+  else if(view==="receipts") app.innerHTML = renderReceiptsScreen();
+  bindEvents();
+}
+
+/* ============================= SCREEN: CHEQUES (marketing entry point) ============================= */
+let chequeSearchState = { code:"", client:null, selectedInstallments:{} };
+let receiptsSearchState = { q:"" };
+
+function renderChequesScreen(){
+  const c = chequeSearchState.client;
+  let html = `
+  <div class="card">
+    <h2>البحث عن العميل</h2>
+    <p class="hint">اكتب كود العميل فقط لعرض بيانات خطة السداد الخاصة به.</p>
+    <div class="row" style="align-items:end;">
+      <div class="field" style="margin-bottom:0;">
+        <label>كود العميل</label>
+        <input id="chqCode" placeholder="مثال: CL-1001" value="${esc(chequeSearchState.code)}" autocomplete="off">
+      </div>
+      <div class="field" style="margin-bottom:0;">
+        <button class="btn btn-brass" id="btnFindClient">عرض بيانات العميل</button>
+      </div>
+    </div>
+  </div>`;
+
+  if(chequeSearchState.code && !c){
+    html += `<div class="card"><div class="empty"><div class="ico">🔍</div>لا يوجد عميل بهذا الكود. تحقّق من الكود أو أضف العميل من شاشة «العملاء وخطط السداد».</div></div>`;
+    return html;
+  }
+  if(!c) return html;
+
+  const t = clientTotals(c);
+
+  html += `
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+      <div>
+        <h2 style="margin-bottom:8px;">${esc(c.name)} <span class="muted" style="font-weight:400;font-size:14px;">— ${esc(c.code)}</span></h2>
+        <div class="tag-flex">
+          <span class="tag">${esc(c.unit)}</span>
+          ${c.contractNumber ? `<span class="tag">رقم العقد: ${esc(c.contractNumber)}</span>` : ""}
+          <span class="tag">سعر الوحدة: ${fmt(c.unitPrice)} ر.ع</span>
+          <span class="tag">تاريخ التعاقد: ${fmtDate(c.contractDate)}</span>
+        </div>
+      </div>
+    </div>
+    <div class="kpi-grid" style="margin-top:18px;">
+      <div class="kpi"><div class="lbl">إجمالي المستحق</div><div class="val">${fmt(t.totalDue)} <small>ر.ع</small></div></div>
+      <div class="kpi"><div class="lbl">إجمالي المسدد (شيكات محصّلة فعليًا)</div><div class="val">${fmt(t.totalPaid)} <small>ر.ع</small></div></div>
+      <div class="kpi"><div class="lbl">المتبقي</div><div class="val">${fmt(t.remaining)} <small>ر.ع</small></div></div>
+      <div class="kpi"><div class="lbl">متأخر السداد</div><div class="val" style="color:${t.overdue>0?'var(--warn)':'inherit'}">${fmt(t.overdue)} <small>ر.ع</small></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>خطة السداد والدفعات</h2>
+    <p class="hint">حدد دفعة أو أكثر مستحقة، ثم سجّل رقم الشيك المستلم من العميل لاستخراج إيصال استلام. ملحوظة: عمود «المسدد» يعكس فقط الشيكات التي تم تحصيلها فعليًا من البنك (من شاشة تحصيل الشيكات) — أما الشيك المستلم ولم يُحصَّل بعد فيمنع تسجيل شيك آخر لنفس الدفعة، لكنه لا يُحتسب مسددًا حتى يتم تحصيله.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th style="width:36px;"></th>
+          <th>م</th><th>البيان</th><th>نوع الدفعة</th><th>تاريخ الاستحقاق</th>
+          <th>القيمة المستحقة</th><th>المسدد</th><th>رقم الشيك</th><th>الحالة</th>
+        </tr></thead>
+        <tbody>
+          ${t.plan.map(inst=>{
+            const st = installmentStatus(inst);
+            const remaining = Math.max(0, inst.amount - inst.paidAmount);
+            const uncovered = Math.max(0, inst.amount - inst.coveredAmount);
+            const checked = chequeSearchState.selectedInstallments[inst.id] ? "checked" : "";
+            const disabled = uncovered<=0.5 ? "disabled" : "";
+            const linkedCheques = state.cheques.filter(chq=>(chq.allocations||[]).some(a=>a.installmentId===inst.id));
+            const chqCell = linkedCheques.length
+              ? linkedCheques.map(chq=>`${esc(chq.chequeNumber)} ${chequeStatusBadge(chq)}`).join("<br>")
+              : `<span class="muted">—</span>`;
+            return `<tr>
+              <td><input type="checkbox" class="instCheck" data-inst="${inst.id}" ${checked} ${disabled}></td>
+              <td class="num muted">${inst.seq}</td>
+              <td>${esc(inst.label)}</td>
+              <td class="muted">${esc(inst.type)}</td>
+              <td class="num">${fmtDate(inst.dueDate)}</td>
+              <td class="num">${fmt(inst.amount)}</td>
+              <td class="num">${fmt(inst.paidAmount)} ${inst.paidAmount>0 && remaining>0 ? `<span class="muted">(متبقي ${fmt(remaining)})</span>`:""}</td>
+              <td class="num">${chqCell}</td>
+              <td>${statusBadge(st)}</td>
+            </tr>`;
+          }).join("")}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>تسجيل استلام شيك</h2>
+    <p class="hint">أدخل بيانات الشيك المستلم فقط — لا يلزم إدخال أي بيانات أخرى.</p>
+    <div class="row3">
+      <div class="field">
+        <label>رقم الشيك</label>
+        <input id="chkNumber" placeholder="رقم الشيك">
+      </div>
+      <div class="field">
+        <label>البنك (اختياري)</label>
+        ${bankSelectHtml("chkBank", "")}
+      </div>
+      <div class="field">
+        <label>تاريخ استحقاق الشيك</label>
+        <input id="chkDate" type="date" readonly style="background:#f1ede2;">
+        <div class="import-hint">تلقائي — يؤخذ من تاريخ استحقاق الدفعة المحددة أدناه.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>تاريخ استلام الشيك</label>
+        <input id="chkReceived" type="date" value="${todayISO()}" readonly style="background:#f1ede2;">
+        <div class="import-hint">تلقائي — تاريخ اليوم من الجهاز.</div>
+      </div>
+      <div class="field">
+        <label>ملاحظات (اختياري)</label>
+        <input id="chkNotes" placeholder="ملاحظات إضافية">
+      </div>
+    </div>
+    <div class="field">
+      <label>قيمة الشيك</label>
+      <input id="chkAmount" type="number" step="0.01" placeholder="0.00" readonly style="background:#f1ede2;">
+      <div class="import-hint" id="selSummary">حدد دفعة واحدة أو أكثر من الجدول أعلاه لحساب قيمة الشيك تلقائيًا.</div>
+    </div>
+    <button class="btn btn-brass" id="btnSaveCheque">حفظ الشيك واستخراج الإيصال</button>
+  </div>`;
+
+  return html;
+}
+
+/* ============================= SCREEN: COLLECT CHEQUES ============================= */
+let collectFilterState = { status:"pending", q:"" };
+let quickCollectState = { code:"", client:null, chequeId:"" };
+
+/* Quick-collect panel: look a client up by code, show their unit/contract, let the user
+   pick the due date of a payment that already has a pending cheque registered against it,
+   auto-fill that cheque's number & value, then record the amount actually collected and
+   the collection method (bank / cash) and issue a formal collection receipt. */
+function renderQuickCollectCard(){
+  const c = quickCollectState.client;
+  let html = `
+  <div class="card" style="border:2px solid var(--brass);">
+    <h2>تحصيل سريع بواسطة كود العميل</h2>
+    <p class="hint">أدخل كود العميل لعرض اسم الوحدة ورقم العقد الخاصين به، ثم اختر تاريخ استحقاق الدفعة لعرض بيانات الشيك المرتبط بها وتسجيل تحصيلها.</p>
+    <div class="row" style="align-items:end;">
+      <div class="field" style="margin-bottom:0;">
+        <label>كود العميل</label>
+        <input id="qcCode" placeholder="مثال: CL-1001" value="${esc(quickCollectState.code)}" autocomplete="off">
+      </div>
+      <div class="field" style="margin-bottom:0;">
+        <button class="btn btn-brass" id="btnQcFind">عرض بيانات العميل</button>
+      </div>
+    </div>`;
+
+  if(quickCollectState.code && !c){
+    html += `<div class="empty" style="padding:24px 0;"><div class="ico">🔍</div>لا يوجد عميل بهذا الكود.</div>
+    </div>`;
+    return html;
+  }
+  if(!c){ html += `</div>`; return html; }
+
+  html += `
+    <div class="tag-flex" style="margin-top:14px;">
+      <span class="tag">${esc(c.name)}</span>
+      <span class="tag">الوحدة: ${esc(c.unit)}</span>
+      ${c.contractNumber ? `<span class="tag">رقم العقد: ${esc(c.contractNumber)}</span>` : ""}
+    </div>`;
+
+  const pendingCheques = visCheques()
+    .filter(chq=>chq.clientId===c.id && chq.status==="pending")
+    .sort((a,b)=>(a.chequeDate||"").localeCompare(b.chequeDate||""));
+
+  if(pendingCheques.length===0){
+    html += `<div class="empty" style="padding:24px 0;"><div class="ico">✅</div>لا توجد شيكات قيد التحصيل لهذا العميل حاليًا.</div>
+    </div>`;
+    return html;
+  }
+
+  const selChq = pendingCheques.find(chq=>chq.id===quickCollectState.chequeId) || pendingCheques[0];
+  quickCollectState.chequeId = selChq.id;
+
+  html += `
+    <div class="field" style="margin-top:14px;">
+      <label>تاريخ استحقاق الدفعة</label>
+      <select id="qcDueSelect">
+        ${pendingCheques.map(chq=>`<option value="${chq.id}" ${chq.id===selChq.id?"selected":""}>${fmtDate(chq.chequeDate)} — شيك رقم ${esc(chq.chequeNumber)} — ${fmt(chq.amount)} ر.ع</option>`).join("")}
+      </select>
+    </div>
+    <div class="row3">
+      <div class="field">
+        <label>رقم الشيك</label>
+        <input id="qcChqNumber" value="${esc(selChq.chequeNumber)}" readonly style="background:#f1ede2;">
+      </div>
+      <div class="field">
+        <label>بنك الشيك</label>
+        <input id="qcChqBank" value="${esc(selChq.bank||"—")}" readonly style="background:#f1ede2;">
+      </div>
+      <div class="field">
+        <label>قيمة الشيك</label>
+        <input id="qcChqAmount" value="${fmt(selChq.amount)}" readonly style="background:#f1ede2;">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>المبلغ المحصَّل فعليًا</label>
+        <input id="qcAmount" type="number" step="0.001" min="0" value="${selChq.amount}">
+      </div>
+      <div class="field">
+        <label>تاريخ التحصيل</label>
+        <input id="qcDate" type="date" value="${todayISO()}">
+      </div>
+    </div>
+    <div class="field">
+      <label>طريقة التحصيل</label>
+      ${bankSelectHtml("qcMethod", "")}
+    </div>
+    <button class="btn btn-brass" id="btnQcConfirm">تسجيل التحصيل وطباعة الإيصال</button>
+  </div>`;
+  return html;
+}
+
+function bindQuickCollectEvents(){
+  const findBtn = document.getElementById("btnQcFind");
+  const codeInput = document.getElementById("qcCode");
+  if(findBtn){
+    findBtn.addEventListener("click", ()=>{
+      quickCollectState.code = codeInput.value.trim();
+      quickCollectState.client = findClientByCode(quickCollectState.code);
+      quickCollectState.chequeId = "";
+      render();
+    });
+  }
+  if(codeInput){
+    codeInput.addEventListener("keydown", e=>{ if(e.key==="Enter") findBtn.click(); });
+  }
+  const dueSelect = document.getElementById("qcDueSelect");
+  if(dueSelect){
+    dueSelect.addEventListener("change", ()=>{
+      quickCollectState.chequeId = dueSelect.value;
+      render();
+    });
+  }
+  bindBankSelect("qcMethod");
+  const confirmBtn = document.getElementById("btnQcConfirm");
+  if(confirmBtn) confirmBtn.addEventListener("click", confirmQuickCollect);
+}
+
+function confirmQuickCollect(){
+  const c = quickCollectState.client;
+  if(!c){ toast("لم يتم اختيار عميل"); return; }
+  const chq = state.cheques.find(x=>x.id===quickCollectState.chequeId);
+  if(!chq || chq.status!=="pending"){ toast("لم يتم العثور على شيك قيد التحصيل لهذه الدفعة"); return; }
+  const amount = parseFloat(document.getElementById("qcAmount").value)||0;
+  if(amount<=0){ toast("أدخل مبلغًا محصَّلًا صحيحًا"); return; }
+  const method = getBankValue("qcMethod");
+  if(!method){ toast("اختر طريقة التحصيل"); return; }
+  const date = document.getElementById("qcDate").value || todayISO();
+
+  chq.status = "collected";
+  chq.collectedDate = date;
+  chq.collectionMethod = method;
+  chq.collectedAmount = amount;
+
+  const record = {
+    ownerRole: c.ownerRole || CURRENT_ROLE,
+    id: uid("col"), seq: state.nextCollectionSeq++,
+    clientId:c.id, chequeId:chq.id, amount, method, date,
+    createdAt:new Date().toISOString()
+  };
+  state.collections.push(record);
+  saveState();
+  toast("تم تسجيل التحصيل بنجاح");
+  quickCollectState.chequeId = "";
+  openCollectionReceipt(record, chq, c);
+}
+
+function renderCollectScreen(){
+  const q = collectFilterState.q.trim().toLowerCase();
+  let rows = visCheques().slice().sort((a,b)=>a.seq-b.seq).map(chq=>{
+    const cl = state.clients.find(c=>c.id===chq.clientId);
+    return { chq, cl };
+  });
+  if(collectFilterState.status!=="all"){
+    rows = rows.filter(r=>(r.chq.status||"pending")===collectFilterState.status);
+  }
+  if(q){
+    rows = rows.filter(r=>
+      (r.chq.chequeNumber||"").toLowerCase().includes(q) ||
+      (r.cl?.code||"").toLowerCase().includes(q) ||
+      (r.cl?.name||"").toLowerCase().includes(q)
+    );
+  }
+
+  const counts = { pending:0, collected:0, bounced:0 };
+  visCheques().forEach(c=>{ counts[c.status||"pending"] = (counts[c.status||"pending"]||0)+1; });
+
+  let html = renderQuickCollectCard();
+  html += `
+  <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr);">
+    <div class="kpi"><div class="lbl">قيد التحصيل</div><div class="val">${counts.pending||0}</div></div>
+    <div class="kpi"><div class="lbl">تم تحصيلها</div><div class="val" style="color:var(--ok);">${counts.collected||0}</div></div>
+    <div class="kpi"><div class="lbl">مرتدة</div><div class="val" style="color:var(--warn);">${counts.bounced||0}</div></div>
+  </div>
+  <div class="card">
+    <h2>متابعة تحصيل الشيكات</h2>
+    <p class="hint">سجّل هنا نتيجة عرض كل شيك على البنك: تحصيل ناجح أو ارتداد. لا يؤثر هذا على تسجيل استلام الشيك نفسه.</p>
+    <div class="toolbar">
+      <div class="field grow" style="margin-bottom:0;">
+        <label>بحث (رقم الشيك / كود العميل / اسم العميل)</label>
+        <input id="colSearch" value="${esc(collectFilterState.q)}" placeholder="اكتب للبحث...">
+      </div>
+      <div class="field" style="margin-bottom:0;min-width:170px;">
+        <label>الحالة</label>
+        <select id="colStatus">
+          <option value="pending" ${collectFilterState.status==="pending"?"selected":""}>قيد التحصيل</option>
+          <option value="collected" ${collectFilterState.status==="collected"?"selected":""}>تم التحصيل</option>
+          <option value="bounced" ${collectFilterState.status==="bounced"?"selected":""}>مرتد</option>
+          <option value="all" ${collectFilterState.status==="all"?"selected":""}>كل الشيكات</option>
+        </select>
+      </div>
+    </div>`;
+
+  if(rows.length===0){
+    html += `<div class="empty"><div class="ico">🧾</div>لا توجد شيكات مطابقة لهذا الفلتر.</div></div>`;
+    return html;
+  }
+
+  html += `<div class="table-wrap"><table><thead><tr>
+    <th>م</th><th>كود العميل</th><th>اسم العميل</th><th>رقم الشيك</th><th>البنك</th>
+    <th>تاريخ استحقاق الشيك</th><th>القيمة</th><th>الحالة</th><th>تفاصيل</th><th></th>
+  </tr></thead><tbody>
+    ${rows.map((r,i)=>{
+      const st = r.chq.status||"pending";
+      let detail = "—";
+      if(st==="collected") detail = `تاريخ التحصيل: ${fmtDate(r.chq.collectedDate)}`;
+      else if(st==="bounced") detail = `تاريخ الارتداد: ${fmtDate(r.chq.bounceDate)}${r.chq.bounceReason?" — "+esc(r.chq.bounceReason):""}`;
+      let actions = "";
+      if(st==="pending"){
+        actions = `
+          <button class="btn btn-brass btn-sm" data-collect="${r.chq.id}">تحصيل الشيك</button>
+          <button class="btn btn-danger btn-sm" data-bounce="${r.chq.id}">تسجيل ارتداد</button>`;
+      } else {
+        actions = `<button class="btn btn-ghost btn-sm" data-reopen="${r.chq.id}">إعادة لقيد التحصيل</button>`;
+      }
+      return `<tr>
+        <td class="num muted">${i+1}</td>
+        <td class="num" style="font-family:monospace;">${esc(r.cl?.code||"—")}</td>
+        <td>${esc(r.cl?.name||"عميل محذوف")}</td>
+        <td class="num">${esc(r.chq.chequeNumber)}</td>
+        <td>${esc(r.chq.bank||"—")}</td>
+        <td class="num">${fmtDate(r.chq.chequeDate)}</td>
+        <td class="num">${fmt(r.chq.amount)}</td>
+        <td>${chequeStatusBadge(r.chq)}</td>
+        <td class="muted" style="font-size:12.5px;">${detail}</td>
+        <td style="white-space:nowrap;">${actions}</td>
+      </tr>`;
+    }).join("")}
+  </tbody></table></div></div>`;
+  return html;
+}
+
+function bindCollectEvents(){
+  bindQuickCollectEvents();
+  const search = document.getElementById("colSearch");
+  if(search){
+    search.addEventListener("input", ()=>{
+      collectFilterState.q = search.value;
+      render();
+      document.getElementById("colSearch")?.focus();
+    });
+  }
+  const status = document.getElementById("colStatus");
+  if(status){
+    status.addEventListener("change", ()=>{
+      collectFilterState.status = status.value;
+      render();
+    });
+  }
+  document.querySelectorAll("[data-collect]").forEach(btn=>{
+    btn.addEventListener("click", ()=>openCollectModal(btn.dataset.collect));
+  });
+  document.querySelectorAll("[data-bounce]").forEach(btn=>{
+    btn.addEventListener("click", ()=>openBounceModal(btn.dataset.bounce));
+  });
+  document.querySelectorAll("[data-reopen]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const chq = state.cheques.find(c=>c.id===btn.dataset.reopen);
+      if(!chq) return;
+      confirmModal("إعادة الشيك لقيد التحصيل", `سيتم إلغاء حالة «${chq.status==="collected"?"تم التحصيل":"مرتد"}» للشيك رقم ${chq.chequeNumber} وإعادته إلى قيد التحصيل.`, ()=>{
+        chq.status = "pending"; chq.collectedDate=null; chq.bounceDate=null; chq.bounceReason="";
+        saveState(); toast("تم إرجاع الشيك لقيد التحصيل"); render();
+      });
+    });
+  });
+}
+
+function openCollectModal(chqId){
+  const chq = state.cheques.find(c=>c.id===chqId);
+  if(!chq) return;
+  const root = document.getElementById("modalRoot");
+  root.innerHTML = `
+  <div class="modal-bg" id="collectBg">
+    <div class="modal">
+      <h3>تحصيل الشيك رقم ${esc(chq.chequeNumber)}</h3>
+      <p>أكّد تاريخ تحصيل الشيك فعليًا من البنك.</p>
+      <div class="field">
+        <label>تاريخ التحصيل</label>
+        <input id="collectDateInput" type="date" value="${todayISO()}">
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-brass" id="collectConfirm">تأكيد التحصيل</button>
+        <button class="btn btn-ghost" id="collectCancel">إلغاء</button>
+      </div>
+    </div>
+  </div>`;
+  document.getElementById("collectConfirm").addEventListener("click", ()=>{
+    const d = document.getElementById("collectDateInput").value || todayISO();
+    chq.status = "collected"; chq.collectedDate = d;
+    saveState(); root.innerHTML=""; toast("تم تسجيل تحصيل الشيك"); render();
+  });
+  document.getElementById("collectCancel").addEventListener("click", ()=>{ root.innerHTML=""; });
+  document.getElementById("collectBg").addEventListener("click", e=>{ if(e.target.id==="collectBg") root.innerHTML=""; });
+}
+
+function openBounceModal(chqId){
+  const chq = state.cheques.find(c=>c.id===chqId);
+  if(!chq) return;
+  const root = document.getElementById("modalRoot");
+  root.innerHTML = `
+  <div class="modal-bg" id="bounceBg">
+    <div class="modal">
+      <h3>تسجيل ارتداد الشيك رقم ${esc(chq.chequeNumber)}</h3>
+      <p>سيتم اعتبار الدفعات المرتبطة بهذا الشيك غير مسددة حتى يتم استلام شيك بديل.</p>
+      <div class="field">
+        <label>تاريخ الارتداد</label>
+        <input id="bounceDateInput" type="date" value="${todayISO()}">
+      </div>
+      <div class="field">
+        <label>سبب الارتداد (اختياري)</label>
+        <input id="bounceReasonInput" placeholder="مثال: رصيد غير كافٍ">
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-danger" id="bounceConfirm">تأكيد الارتداد</button>
+        <button class="btn btn-ghost" id="bounceCancel">إلغاء</button>
+      </div>
+    </div>
+  </div>`;
+  document.getElementById("bounceConfirm").addEventListener("click", ()=>{
+    const d = document.getElementById("bounceDateInput").value || todayISO();
+    const reason = document.getElementById("bounceReasonInput").value.trim();
+    chq.status = "bounced"; chq.bounceDate = d; chq.bounceReason = reason;
+    saveState(); root.innerHTML=""; toast("تم تسجيل ارتداد الشيك"); render();
+  });
+  document.getElementById("bounceCancel").addEventListener("click", ()=>{ root.innerHTML=""; });
+  document.getElementById("bounceBg").addEventListener("click", e=>{ if(e.target.id==="bounceBg") root.innerHTML=""; });
+}
+
+/* ============================= SCREEN: CLIENTS ============================= */
+let clientForm = null; // when editing/adding
+function blankYearPlan(){ return {percent:"", phase1:"", phase2:"", phase3:""}; }
+function blankClientForm(){
+  return {
+    code:"", name:"", unit:"", phone:"", contractNumber:"", contractDate:"", installmentsStartDate:"",
+    unitPrice:"", reservationPct:"", downPaymentPct:"", chequesCount:36, years:3,
+    yearPlans:[blankYearPlan(), blankYearPlan(), blankYearPlan()]
+  };
+}
+function yearsFromCheques(count){
+  const n = Math.max(1, Math.round((parseFloat(count)||0)));
+  return Math.min(6, Math.max(1, Math.ceil(n/12)));
+}
+
+/* Resolve a year's phase amounts: any phase left at 0 (or blank) is auto-calculated
+   as an equal share of what's left after manually-entered phases, split evenly across
+   its own months plus the always-auto final (12th) month. If all three phases are
+   manual, this degenerates to the original behavior (last month = pure leftover). */
+const PHASE_MONTHS = [3,3,5];
+function resolveYearPhases(yearVal, p1raw, p2raw, p3raw){
+  const raws = [p1raw, p2raw, p3raw];
+  let manualTotal = 0, autoMonths = 0;
+  const isAuto = [false,false,false];
+  raws.forEach((r,i)=>{
+    const v = parseFloat(r)||0;
+    if(v>0){ manualTotal += v*PHASE_MONTHS[i]; }
+    else { autoMonths += PHASE_MONTHS[i]; isAuto[i] = true; }
+  });
+  const remaining = yearVal - manualTotal;
+  const autoRate = Math.round((remaining/(autoMonths+1))*100)/100;
+  const resolved = raws.map((r,i)=>{
+    const v = parseFloat(r)||0;
+    return v>0 ? v : autoRate;
+  });
+  const flexTotal = resolved[0]*PHASE_MONTHS[0] + resolved[1]*PHASE_MONTHS[1] + resolved[2]*PHASE_MONTHS[2];
+  const lastInst = Math.round((yearVal-flexTotal)*100)/100;
+  return { phase1:resolved[0], phase2:resolved[1], phase3:resolved[2], lastInst, isAuto, autoRate };
+}
+
+function renderClientsScreen(){
+  let html = `
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <h2 style="margin:0;">قائمة العملاء</h2>
+      <button class="btn btn-navy btn-sm" id="btnNewClient">+ عميل جديد</button>
+    </div>
+    <p class="hint">إدارة بيانات العميل وأسس خطة السداد (سعر الوحدة، الحجز، المقدم، توزيع السنوات).</p>`;
+
+  const visibleClientsList = visClients();
+  if(visibleClientsList.length===0){
+    html += `<div class="empty"><div class="ico">📋</div>لا يوجد عملاء بعد. أضف أول عميل لبدء إنشاء خطة سداد.</div>`;
+  } else {
+    html += `<div class="table-wrap"><table><thead><tr>
+      <th>الكود</th><th>اسم العميل</th><th>الوحدة</th><th>سعر الوحدة</th><th>تاريخ التعاقد</th><th></th>
+    </tr></thead><tbody>
+      ${visibleClientsList.map(c=>`
+        <tr>
+          <td class="num" style="font-family:monospace;color:var(--brass-dark);font-weight:700;">${esc(c.code)}</td>
+          <td>${esc(c.name)}</td>
+          <td class="muted">${esc(c.unit)}</td>
+          <td class="num">${fmt(c.unitPrice)}</td>
+          <td class="num">${fmtDate(c.contractDate)}</td>
+          <td style="white-space:nowrap;">
+            <button class="btn btn-ghost btn-sm" data-edit-client="${c.id}">تعديل</button>
+            <button class="btn btn-danger btn-sm" data-del-client="${c.id}">حذف</button>
+          </td>
+        </tr>
+      `).join("")}
+    </tbody></table></div>`;
+  }
+  html += `</div>`;
+
+  if(clientForm){
+    html += renderClientForm();
+  }
+  return html;
+}
+
+function renderClientForm(){
+  const f = clientForm;
+  const isEdit = !!f._editId;
+
+  let yearRows = "";
+  for(let i=0;i<f.years;i++){
+    const yp = f.yearPlans[i] || blankYearPlan();
+    yearRows += `
+      <tr>
+        <td>السنة ${arabicYear(i+1)}</td>
+        <td><input type="number" step="0.01" class="yearPctInput" data-idx="${i}" value="${esc(yp.percent??"")}" placeholder="0" style="max-width:110px;"></td>
+        <td class="num"><span id="yearVal_${i}">0</span> ر.ع</td>
+      </tr>`;
+  }
+
+  let phaseBlocks = "";
+  for(let i=0;i<f.years;i++){
+    const yp = f.yearPlans[i] || blankYearPlan();
+    phaseBlocks += `
+      <div class="year-block">
+        <h4>السنة ${arabicYear(i+1)} <span class="muted" style="font-weight:400;font-size:12.5px;">— إجمالي السنة: <span id="yearVal2_${i}">0</span> ر.ع</span></h4>
+        <div class="phase-grid">
+          <div class="field" style="margin-bottom:0;">
+            <label>المرحلة الأولى (أول 3 أشهر) — قيمة القسط</label>
+            <input type="number" step="0.01" class="phase1Input" data-idx="${i}" value="${esc(yp.phase1??"")}" placeholder="اتركه 0 للحساب التلقائي">
+            <div class="import-hint" id="phase1Hint_${i}"></div>
+          </div>
+          <div class="field" style="margin-bottom:0;">
+            <label>المرحلة الثانية (تاني 3 أشهر) — قيمة القسط</label>
+            <input type="number" step="0.01" class="phase2Input" data-idx="${i}" value="${esc(yp.phase2??"")}" placeholder="اتركه 0 للحساب التلقائي">
+            <div class="import-hint" id="phase2Hint_${i}"></div>
+          </div>
+          <div class="field" style="margin-bottom:0;">
+            <label>المرحلة الثالثة (آخر 5 أشهر) — قيمة القسط</label>
+            <input type="number" step="0.01" class="phase3Input" data-idx="${i}" value="${esc(yp.phase3??"")}" placeholder="اتركه 0 للحساب التلقائي">
+            <div class="import-hint" id="phase3Hint_${i}"></div>
+          </div>
+        </div>
+        <div class="calc-row">
+          <span class="k">القسط الأخير (الشهر 12) — يُحسب تلقائيًا دائمًا</span>
+          <span class="v" id="lastInst_${i}">0 ر.ع</span>
+        </div>
+        <div id="phaseChk_${i}" style="font-size:12.5px;margin-top:4px;"></div>
+      </div>`;
+  }
+
+  return `
+  <div class="card" id="clientFormCard">
+    <h2>${isEdit ? "تعديل بيانات العميل" : "إضافة عميل جديد"}</h2>
+    <p class="hint">أدخل النسب فقط حيث يلزم — القيم تُحسب تلقائيًا وتُبنى منها خطة السداد الشهرية.</p>
+
+    <div class="form-section">
+      <div class="form-section-title"><span class="num">1</span> بيانات العميل</div>
+      <div class="row3">
+        <div class="field"><label>كود العميل *</label><input id="fCode" value="${esc(f.code)}" placeholder="CL-1003"></div>
+        <div class="field"><label>اسم العميل *</label><input id="fName" value="${esc(f.name)}"></div>
+        <div class="field"><label>رقم الهاتف</label><input id="fPhone" value="${esc(f.phone)}" placeholder="968 9XXX XXXX"></div>
+      </div>
+      <div class="row3">
+        <div class="field"><label>اسم المشروع / رقم الوحدة</label><input id="fUnit" value="${esc(f.unit)}"></div>
+        <div class="field"><label>رقم العقد</label><input id="fContractNumber" value="${esc(f.contractNumber)}" placeholder="CN-2025-0001"></div>
+        <div class="field"><label>تاريخ العقد</label><input id="fContractDate" type="date" value="${esc(f.contractDate)}"></div>
+      </div>
+    </div>
+
+    <div class="form-section emphasis-brass">
+      <div class="form-section-title"><span class="num">2</span> الافتراضات المالية الأساسية</div>
+      <div class="field">
+        <label>إجمالي سعر الوحدة * (إدخال يدوي)</label>
+        <input id="fUnitPrice" type="number" step="0.01" value="${esc(f.unitPrice)}" placeholder="0.00">
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>دفعة الحجز — النسبة % (إدخال يدوي)</label>
+          <input id="fResPct" type="number" step="0.01" value="${esc(f.reservationPct)}" placeholder="مثال: 5">
+        </div>
+        <div class="field">
+          <label>دفعة المقدم — النسبة % (إدخال يدوي)</label>
+          <input id="fDownPct" type="number" step="0.01" value="${esc(f.downPaymentPct)}" placeholder="مثال: 10">
+        </div>
+      </div>
+      <div class="calc-row"><span class="k">قيمة دفعة الحجز (تلقائي)</span><span class="v" id="spanResVal">0 ر.ع</span></div>
+      <div class="calc-row"><span class="k">قيمة دفعة المقدم (تلقائي)</span><span class="v" id="spanDownVal">0 ر.ع</span></div>
+      <div class="totals-row">
+        <span>المتبقي المقسط على السنوات — نسبة <span id="spanRemainPct">0%</span></span>
+        <span id="spanRemainVal">0 ر.ع</span>
+      </div>
+      <div id="remainWarn" style="font-size:12.5px;margin-top:6px;"></div>
+    </div>
+
+    <div class="form-section emphasis-navy">
+      <div class="form-section-title"><span class="num">3</span> توزيع المتبقي على السنوات</div>
+      <p class="hint" style="margin-top:-8px;">أدخل إجمالي عدد الشيكات الشهرية المتفق عليها مع العميل — يظهر أدناه تلقائيًا تفصيل السنوات الكاملة اللازمة فقط (كل 12 شيك = سنة واحدة، ويُقرَّب لأعلى، بحد أقصى 6 سنوات).</p>
+      <div class="row">
+        <div class="field" style="margin-bottom:0;">
+          <label>عدد الشيكات (الأقساط الشهرية الإجمالي)</label>
+          <input id="fChequesCount" type="number" min="1" max="72" step="1" value="${esc(f.chequesCount)}" placeholder="مثال: 36">
+          <div class="import-hint" id="chequesYearsHint">= ${f.years} ${f.years===1?"سنة":"سنوات"} بالتفصيل (${f.years*12} شهرًا معروضًا أدناه)</div>
+        </div>
+        <div class="field" style="margin-bottom:0;"><label>تاريخ بداية الأقساط الشهرية</label><input id="fInstStart" type="date" value="${esc(f.installmentsStartDate)}"></div>
+      </div>
+      <div class="table-wrap" style="margin-top:14px;background:#fff;">
+        <table>
+          <thead><tr><th>السنة</th><th>نسبة السنة % (إدخال يدوي)</th><th>قيمة السنة (تلقائي)</th></tr></thead>
+          <tbody id="yearRowsBody">${yearRows}</tbody>
+        </table>
+      </div>
+      <div class="totals-row">
+        <span>الإجمالي — نسبة <span id="yearsTotalPct">0%</span></span>
+        <span id="yearsTotalVal">0 ر.ع</span>
+      </div>
+      <div id="yearsTotalChk" style="font-size:12.5px;margin-top:6px;"></div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title"><span class="num">4</span> حساب الأقساط المرنة لكل سنة (3 مراحل: 3 + 3 + 5 أشهر، والقسط الأخير تلقائي)</div>
+      <p class="hint" style="margin-top:-6px;">لكل مرحلة: أدخل قيمة القسط الشهري يدويًا، أو اتركها صفرًا ليتم حسابها تلقائيًا. المرحلة التلقائية تأخذ نصيبها بالتساوي من المبلغ المتبقي بعد خصم المراحل اليدوية (ويشاركها القسط الأخير دائمًا في هذا التوزيع).</p>
+      <div id="phaseBlocksWrap">${phaseBlocks}</div>
+    </div>
+
+    <div style="display:flex;gap:10px;margin-top:10px;">
+      <button class="btn btn-brass" id="btnSaveClientForm">${isEdit?"حفظ التعديلات":"إضافة العميل"}</button>
+      <button class="btn btn-ghost" id="btnCancelClientForm">إلغاء</button>
+    </div>
+  </div>`;
+}
+
+/* ============================= SCREEN: REPORTS ============================= */
+function renderChequesReport(){
+  const rows = visCheques().slice().sort((a,b)=>a.seq-b.seq).map(chq=>{
+    const cl = state.clients.find(c=>c.id===chq.clientId);
+    return {chq, cl};
+  });
+  let html = `
+  <div class="card">
+    <div class="toolbar">
+      <h2 style="margin:0;">تقرير الشيكات</h2>
+      <div class="grow"></div>
+      <button class="btn btn-ghost btn-sm no-print" id="btnExportChqExcel">تصدير Excel</button>
+      <button class="btn btn-ghost btn-sm no-print" id="btnExportChqWord">تصدير Word</button>
+      <button class="btn btn-navy btn-sm no-print" id="btnPrintChqReport">طباعة</button>
+    </div>`;
+
+  if(rows.length===0){
+    html += `<div class="empty"><div class="ico">🧾</div>لا توجد شيكات مسجلة بعد.</div></div>`;
+    return html;
+  }
+
+  const totalAmt = rows.reduce((s,r)=>s+r.chq.amount,0);
+  html += `<div class="kpi-grid" style="grid-template-columns:repeat(3,1fr);">
+    <div class="kpi"><div class="lbl">عدد الشيكات</div><div class="val">${rows.length}</div></div>
+    <div class="kpi"><div class="lbl">إجمالي قيمة الشيكات المستلمة</div><div class="val">${fmt(totalAmt)} <small>ر.ع</small></div></div>
+    <div class="kpi"><div class="lbl">عدد العملاء</div><div class="val">${new Set(rows.map(r=>r.cl?.id)).size}</div></div>
+  </div>`;
+
+  html += `<div class="table-wrap"><table id="chqReportTable"><thead><tr>
+    <th>م</th><th>كود العميل</th><th>اسم العميل</th><th>رقم الشيك</th><th>البنك</th>
+    <th>نوع الدفعة</th><th>تاريخ الاستلام</th><th>تاريخ استحقاق الشيك</th><th>القيمة</th><th>حالة التحصيل</th>
+  </tr></thead><tbody>
+    ${rows.map((r,i)=>{
+      const plan = r.cl ? buildPlan(r.cl) : [];
+      const types = [...new Set((r.chq.allocations||[]).map(a=>{
+        const inst = plan.find(p=>p.id===a.installmentId);
+        return inst ? inst.type : null;
+      }).filter(Boolean))];
+      return `
+      <tr>
+        <td class="num muted">${i+1}</td>
+        <td class="num" style="font-family:monospace;">${esc(r.cl?.code||"—")}</td>
+        <td>${esc(r.cl?.name||"عميل محذوف")}</td>
+        <td class="num">${esc(r.chq.chequeNumber)}</td>
+        <td>${esc(r.chq.bank||"—")}</td>
+        <td class="muted">${esc(types.join("، ")||"—")}</td>
+        <td class="num">${fmtDate(r.chq.receivedDate)}</td>
+        <td class="num">${fmtDate(r.chq.chequeDate)}</td>
+        <td class="num">${fmt(r.chq.amount)}</td>
+        <td>${chequeStatusBadge(r.chq)}</td>
+      </tr>
+    `;}).join("")}
+  </tbody></table></div></div>`;
+  return html;
+}
+
+function renderClientsReport(){
+  let html = `
+  <div class="card">
+    <div class="toolbar">
+      <h2 style="margin:0;">تقرير العملاء</h2>
+      <div class="grow"></div>
+      <button class="btn btn-ghost btn-sm no-print" id="btnExportClientsExcel">تصدير Excel</button>
+      <button class="btn btn-ghost btn-sm no-print" id="btnExportClientsWord">تصدير Word</button>
+      <button class="btn btn-navy btn-sm no-print" id="btnPrintClientsReport">طباعة</button>
+    </div>`;
+
+  const visClientsForReport = visClients();
+  if(visClientsForReport.length===0){
+    html += `<div class="empty"><div class="ico">👥</div>لا يوجد عملاء بعد.</div></div>`;
+    return html;
+  }
+
+  const rows = visClientsForReport.map(c=>({c, t:clientTotals(c)}));
+  const grandDue = rows.reduce((s,r)=>s+r.t.totalDue,0);
+  const grandPaid = rows.reduce((s,r)=>s+r.t.totalPaid,0);
+  const grandOverdue = rows.reduce((s,r)=>s+r.t.overdue,0);
+
+  html += `<div class="kpi-grid">
+    <div class="kpi"><div class="lbl">إجمالي المستحق على الكل</div><div class="val">${fmt(grandDue)} <small>ر.ع</small></div></div>
+    <div class="kpi"><div class="lbl">إجمالي المسدد</div><div class="val">${fmt(grandPaid)} <small>ر.ع</small></div></div>
+    <div class="kpi"><div class="lbl">إجمالي المتبقي</div><div class="val">${fmt(grandDue-grandPaid)} <small>ر.ع</small></div></div>
+    <div class="kpi"><div class="lbl">إجمالي المتأخر</div><div class="val" style="color:${grandOverdue>0?'var(--warn)':'inherit'}">${fmt(grandOverdue)} <small>ر.ع</small></div></div>
+  </div>`;
+
+  html += `<div class="table-wrap"><table id="clientsReportTable"><thead><tr>
+    <th>الكود</th><th>اسم العميل</th><th>الوحدة</th><th>إجمالي المستحق</th>
+    <th>المسدد</th><th>المتبقي</th><th>المتأخر</th>
+  </tr></thead><tbody>
+    ${rows.map(r=>`
+      <tr>
+        <td class="num" style="font-family:monospace;color:var(--brass-dark);font-weight:700;">${esc(r.c.code)}</td>
+        <td>${esc(r.c.name)}</td>
+        <td class="muted">${esc(r.c.unit)}</td>
+        <td class="num">${fmt(r.t.totalDue)}</td>
+        <td class="num">${fmt(r.t.totalPaid)}</td>
+        <td class="num">${fmt(r.t.remaining)}</td>
+        <td class="num" style="${r.t.overdue>0?'color:var(--warn);font-weight:700;':''}">${fmt(r.t.overdue)}</td>
+      </tr>
+    `).join("")}
+  </tbody></table></div></div>`;
+  return html;
+}
+
+/* ============================= EVENTS ============================= */
+function bindEvents(){
+  if(view==="cheques") bindChequesEvents();
+  if(view==="collect") bindCollectEvents();
+  if(view==="clients") bindClientsEvents();
+  if(view==="reportCheques") bindChequesReportEvents();
+  if(view==="reportClients") bindClientsReportEvents();
+  if(view==="receipts") bindReceiptsEvents();
+}
+
+function bindChequesEvents(){
+  const findBtn = document.getElementById("btnFindClient");
+  const codeInput = document.getElementById("chqCode");
+  if(findBtn){
+    findBtn.addEventListener("click", ()=>{
+      chequeSearchState.code = codeInput.value.trim();
+      chequeSearchState.client = findClientByCode(chequeSearchState.code);
+      chequeSearchState.selectedInstallments = {};
+      render();
+    });
+  }
+  if(codeInput){
+    codeInput.addEventListener("keydown", e=>{
+      if(e.key==="Enter") findBtn.click();
+    });
+  }
+  document.querySelectorAll(".instCheck").forEach(cb=>{
+    cb.addEventListener("change", ()=>{
+      const id = cb.dataset.inst;
+      if(cb.checked) chequeSearchState.selectedInstallments[id] = true;
+      else delete chequeSearchState.selectedInstallments[id];
+      updateChequeAmount();
+    });
+  });
+  updateChequeAmount();
+
+  const saveBtn = document.getElementById("btnSaveCheque");
+  if(saveBtn) saveBtn.addEventListener("click", saveCheque);
+  bindBankSelect("chkBank");
+}
+
+function updateChequeAmount(){
+  const amtInput = document.getElementById("chkAmount");
+  const dateInput = document.getElementById("chkDate");
+  const receivedInput = document.getElementById("chkReceived");
+  const summary = document.getElementById("selSummary");
+  if(!amtInput) return;
+  if(receivedInput) receivedInput.value = todayISO();
+  const c = chequeSearchState.client;
+  if(!c){ return; }
+  const plan = planWithPayments(c);
+  const ids = Object.keys(chequeSearchState.selectedInstallments);
+  let total = 0; const labels=[]; let latestDue = "";
+  ids.forEach(id=>{
+    const inst = plan.find(i=>i.id===id);
+    if(inst){
+      total += Math.max(0, inst.amount - inst.coveredAmount);
+      labels.push(inst.label);
+      if(inst.dueDate && inst.dueDate > latestDue) latestDue = inst.dueDate;
+    }
+  });
+  amtInput.value = total.toFixed(2);
+  if(dateInput) dateInput.value = latestDue;
+  summary.textContent = ids.length
+    ? `محدد: ${labels.join("، ")} — إجمالي ${fmt(total)} ر.ع`
+    : "حدد دفعة واحدة أو أكثر من الجدول أعلاه لحساب قيمة الشيك تلقائيًا.";
+}
+
+function saveCheque(){
+  const c = chequeSearchState.client;
+  if(!c){ toast("لم يتم اختيار عميل"); return; }
+  const ids = Object.keys(chequeSearchState.selectedInstallments);
+  if(ids.length===0){ toast("حدد دفعة واحدة على الأقل من خطة السداد"); return; }
+  const number = document.getElementById("chkNumber").value.trim();
+  if(!number){ toast("أدخل رقم الشيك"); return; }
+  const bank = getBankValue("chkBank");
+  const chequeDate = document.getElementById("chkDate").value;
+  const received = document.getElementById("chkReceived").value || todayISO();
+  const notes = document.getElementById("chkNotes").value.trim();
+  const amount = parseFloat(document.getElementById("chkAmount").value)||0;
+
+  const plan = planWithPayments(c);
+  const allocations = ids.map(id=>{
+    const inst = plan.find(i=>i.id===id);
+    return { installmentId:id, amount: Math.max(0, inst.amount - inst.coveredAmount) };
+  });
+
+  const cheque = {
+    ownerRole: c.ownerRole || CURRENT_ROLE,
+    id: uid("chk"), clientId:c.id, chequeNumber:number, bank, amount,
+    receivedDate:received, chequeDate, notes, allocations,
+    status:"pending", collectedDate:null, bounceDate:null, bounceReason:"",
+    seq: state.nextChequeSeq++, createdAt:new Date().toISOString()
+  };
+  state.cheques.push(cheque);
+  saveState();
+  toast("تم حفظ الشيك بنجاح");
+  chequeSearchState.selectedInstallments = {};
+  openReceipt(cheque, c, allocations.map(a=>plan.find(i=>i.id===a.installmentId)));
+  render();
+}
+
+function bindClientsEvents(){
+  const btnNew = document.getElementById("btnNewClient");
+  if(btnNew) btnNew.addEventListener("click", ()=>{ clientForm = blankClientForm(); render(); });
+
+  document.querySelectorAll("[data-edit-client]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const c = state.clients.find(x=>x.id===btn.dataset.editClient);
+      if(!c) return;
+      clientForm = {
+        _editId:c.id, code:c.code, name:c.name, unit:c.unit, phone:c.phone,
+        contractNumber:c.contractNumber||"", contractDate:c.contractDate||"", installmentsStartDate:c.installmentsStartDate||"",
+        unitPrice:c.unitPrice,
+        reservationPct: c.reservationPct!=null ? (c.reservationPct*100) : "",
+        downPaymentPct: c.downPaymentPct!=null ? (c.downPaymentPct*100) : "",
+        years:c.years,
+        chequesCount: c.chequesCount!=null ? c.chequesCount : (c.years*12),
+        yearPlans: (c.yearPlans||[]).map(yp=>({
+          percent: yp.percent!=null ? (yp.percent*100) : "",
+          phase1: yp.phase1Raw ?? (yp.phase1 ?? ""),
+          phase2: yp.phase2Raw ?? (yp.phase2 ?? ""),
+          phase3: yp.phase3Raw ?? (yp.phase3 ?? "")
+        }))
+      };
+      // pad in case stored years count doesn't match yearPlans length
+      while(clientForm.yearPlans.length < clientForm.years) clientForm.yearPlans.push(blankYearPlan());
+      render();
+    });
+  });
+  document.querySelectorAll("[data-del-client]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const id = btn.dataset.delClient;
+      confirmModal("حذف العميل؟", "سيتم حذف بيانات العميل وخطة السداد الخاصة به. الشيكات المسجلة له ستبقى في السجل التاريخي لكنها لن تُربط بعميل.", ()=>{
+        state.clients = state.clients.filter(c=>c.id!==id);
+        saveState();
+        toast("تم حذف العميل");
+        render();
+      });
+    });
+  });
+
+  const chequesCountInput = document.getElementById("fChequesCount");
+  if(chequesCountInput){
+    chequesCountInput.addEventListener("change", ()=>{
+      syncFormFromInputs();
+      clientForm.chequesCount = chequesCountInput.value;
+      const n = yearsFromCheques(chequesCountInput.value);
+      const arr = clientForm.yearPlans.slice(0,n);
+      while(arr.length<n) arr.push(blankYearPlan());
+      clientForm.years = n;
+      clientForm.yearPlans = arr;
+      render();
+    });
+  }
+
+  const saveFormBtn = document.getElementById("btnSaveClientForm");
+  if(saveFormBtn) saveFormBtn.addEventListener("click", saveClientForm);
+  const cancelBtn = document.getElementById("btnCancelClientForm");
+  if(cancelBtn) cancelBtn.addEventListener("click", ()=>{ clientForm=null; render(); });
+
+  // live recalculation of all derived percentages/values as the user types
+  bindClientFormRecalc();
+}
+
+/* Live recalculation for the client form: percentages -> auto values, and flexible
+   phase amounts -> auto last installment. Reads current DOM input values directly
+   so it can run on every keystroke without a full re-render (keeps focus/cursor). */
+function bindClientFormRecalc(){
+  const card = document.getElementById("clientFormCard");
+  if(!card) return;
+  card.addEventListener("input", recalcClientForm);
+  recalcClientForm();
+}
+
+function setText(id, text){
+  const el = document.getElementById(id);
+  if(el) el.textContent = text;
+}
+
+function recalcClientForm(){
+  if(!document.getElementById("clientFormCard")) return;
+  const chequesCountVal = document.getElementById("fChequesCount")?.value;
+  if(chequesCountVal!==undefined){
+    const ny = yearsFromCheques(chequesCountVal);
+    setText("chequesYearsHint", `= ${ny} ${ny===1?"سنة":"سنوات"} بالتفصيل (${ny*12} شهرًا معروضًا أدناه — اضغط خارج الحقل لتحديث الجدول)`);
+  }
+  const unitPrice = parseFloat(document.getElementById("fUnitPrice")?.value)||0;
+  const resPct = parseFloat(document.getElementById("fResPct")?.value)||0;
+  const downPct = parseFloat(document.getElementById("fDownPct")?.value)||0;
+  const resVal = unitPrice*resPct/100;
+  const downVal = unitPrice*downPct/100;
+  const remainPct = 100 - resPct - downPct;
+  const remainVal = unitPrice*remainPct/100;
+
+  setText("spanResVal", fmt(resVal)+" ر.ع");
+  setText("spanDownVal", fmt(downVal)+" ر.ع");
+  setText("spanRemainPct", remainPct.toFixed(2)+"%");
+  setText("spanRemainVal", fmt(remainVal)+" ر.ع");
+  const remainWarn = document.getElementById("remainWarn");
+  if(remainWarn){
+    remainWarn.innerHTML = (unitPrice>0 && remainPct<0)
+      ? `<span style="color:var(--warn);">تنبيه: نسبة الحجز + المقدم تتجاوز 100%</span>` : "";
+  }
+
+  let totalYearPct=0, totalYearVal=0;
+  document.querySelectorAll(".yearPctInput").forEach(inp=>{
+    const idx = inp.dataset.idx;
+    const pct = parseFloat(inp.value)||0;
+    const val = remainVal*pct/100;
+    totalYearPct += pct; totalYearVal += val;
+    setText("yearVal_"+idx, fmt(val));
+    setText("yearVal2_"+idx, fmt(val));
+
+    const p1raw = document.querySelector(`.phase1Input[data-idx="${idx}"]`)?.value;
+    const p2raw = document.querySelector(`.phase2Input[data-idx="${idx}"]`)?.value;
+    const p3raw = document.querySelector(`.phase3Input[data-idx="${idx}"]`)?.value;
+    const r = resolveYearPhases(val, p1raw, p2raw, p3raw);
+    setText("lastInst_"+idx, fmt(r.lastInst)+" ر.ع");
+    [1,2,3].forEach(n=>{
+      const hintEl = document.getElementById(`phase${n}Hint_${idx}`);
+      if(!hintEl) return;
+      hintEl.innerHTML = (r.isAuto[n-1] && val>0)
+        ? `<span style="color:var(--brass-dark);">تلقائي = ${fmt(r["phase"+n])} ر.ع</span>` : "";
+    });
+    const flexTotal = r.phase1*3 + r.phase2*3 + r.phase3*5;
+    const lastInst = r.lastInst;
+    const chkEl = document.getElementById("phaseChk_"+idx);
+    if(chkEl){
+      if(val<=0){
+        chkEl.innerHTML = "";
+      } else if(lastInst<0){
+        chkEl.innerHTML = `<span style="color:var(--warn);">تنبيه: إجمالي المراحل المرنة (${fmt(flexTotal)}) يتجاوز إجمالي السنة (${fmt(val)})</span>`;
+      } else {
+        chkEl.innerHTML = `<span style="color:var(--ok);">✓ إجمالي الأقساط الاثني عشر = ${fmt(flexTotal+lastInst)} ر.ع (مطابق لإجمالي السنة)</span>`;
+      }
+    }
+  });
+  setText("yearsTotalPct", totalYearPct.toFixed(2)+"%");
+  setText("yearsTotalVal", fmt(totalYearVal)+" ر.ع");
+  const yearsChk = document.getElementById("yearsTotalChk");
+  if(yearsChk){
+    if(remainVal<=0){ yearsChk.innerHTML=""; }
+    else if(Math.abs(totalYearPct-100)<0.5 && Math.abs(totalYearVal-remainVal)<1){
+      yearsChk.innerHTML = `<span style="color:var(--ok);">✓ إجمالي توزيع السنوات مطابق للمتبقي (100%)</span>`;
+    } else {
+      yearsChk.innerHTML = `<span style="color:var(--warn);">مجموع النسب الحالي ${totalYearPct.toFixed(2)}% — يجب أن يساوي 100%</span>`;
+    }
+  }
+}
+
+function syncFormFromInputs(){
+  if(!clientForm) return;
+  const g = id=>document.getElementById(id)?.value ?? "";
+  clientForm.code = g("fCode");
+  clientForm.name = g("fName");
+  clientForm.phone = g("fPhone");
+  clientForm.unit = g("fUnit");
+  clientForm.contractNumber = g("fContractNumber");
+  clientForm.contractDate = g("fContractDate");
+  clientForm.unitPrice = g("fUnitPrice");
+  clientForm.reservationPct = g("fResPct");
+  clientForm.downPaymentPct = g("fDownPct");
+  clientForm.installmentsStartDate = g("fInstStart");
+  clientForm.chequesCount = g("fChequesCount");
+  document.querySelectorAll(".yearPctInput").forEach(inp=>{
+    const idx = parseInt(inp.dataset.idx,10);
+    if(clientForm.yearPlans[idx]) clientForm.yearPlans[idx].percent = inp.value;
+  });
+  document.querySelectorAll(".phase1Input").forEach(inp=>{
+    const idx = parseInt(inp.dataset.idx,10);
+    if(clientForm.yearPlans[idx]) clientForm.yearPlans[idx].phase1 = inp.value;
+  });
+  document.querySelectorAll(".phase2Input").forEach(inp=>{
+    const idx = parseInt(inp.dataset.idx,10);
+    if(clientForm.yearPlans[idx]) clientForm.yearPlans[idx].phase2 = inp.value;
+  });
+  document.querySelectorAll(".phase3Input").forEach(inp=>{
+    const idx = parseInt(inp.dataset.idx,10);
+    if(clientForm.yearPlans[idx]) clientForm.yearPlans[idx].phase3 = inp.value;
+  });
+}
+
+function saveClientForm(){
+  syncFormFromInputs();
+  const f = clientForm;
+  if(!f.code.trim() || !f.name.trim()){ toast("أدخل كود واسم العميل"); return; }
+  const dupe = state.clients.find(c=>c.code.toLowerCase()===f.code.trim().toLowerCase() && c.id!==f._editId);
+  if(dupe){ toast("يوجد عميل آخر بنفس الكود"); return; }
+
+  const unitPrice = parseFloat(f.unitPrice)||0;
+  if(unitPrice<=0){ toast("أدخل إجمالي سعر الوحدة"); return; }
+  const reservationPct = (parseFloat(f.reservationPct)||0)/100;
+  const downPaymentPct = (parseFloat(f.downPaymentPct)||0)/100;
+  const reservation = unitPrice*reservationPct;
+  const downPayment = unitPrice*downPaymentPct;
+  const remainingPct = 1 - reservationPct - downPaymentPct;
+  if(remainingPct<0){ toast("نسبة الحجز + المقدم تتجاوز 100% — راجع النسب"); return; }
+  const remaining = unitPrice*remainingPct;
+
+  const chequesCount = parseInt(f.chequesCount,10) || (f.years*12);
+  const years = yearsFromCheques(chequesCount);
+  if(years !== f.yearPlans.length){
+    while(f.yearPlans.length<years) f.yearPlans.push(blankYearPlan());
+    f.yearPlans = f.yearPlans.slice(0,years);
+  }
+
+  const yearPlans = f.yearPlans.map(yp=>{
+    const percent = (parseFloat(yp.percent)||0)/100;
+    const amount = remaining*percent;
+    const r = resolveYearPhases(amount, yp.phase1, yp.phase2, yp.phase3);
+    return {
+      percent, amount, phase1:r.phase1, phase2:r.phase2, phase3:r.phase3, lastInstallment:r.lastInst,
+      phase1Raw: yp.phase1 || "", phase2Raw: yp.phase2 || "", phase3Raw: yp.phase3 || ""
+    };
+  });
+
+  const negIdx = yearPlans.findIndex(yp=>yp.amount>0 && yp.lastInstallment<0);
+  if(negIdx>=0){
+    toast(`تنبيه: القسط الأخير للسنة ${arabicYear(negIdx+1)} أصبح سالبًا — قلّل قيم المراحل`);
+    return;
+  }
+
+  const payload = {
+    code:f.code.trim(), name:f.name.trim(), unit:f.unit.trim(), phone:f.phone.trim(),
+    contractNumber:(f.contractNumber||"").trim(), contractDate:f.contractDate, installmentsStartDate:f.installmentsStartDate,
+    unitPrice, reservationPct, reservation, downPaymentPct, downPayment,
+    remainingPct, remaining, chequesCount, years, yearPlans
+  };
+
+  if(f._editId){
+    const idx = state.clients.findIndex(c=>c.id===f._editId);
+    state.clients[idx] = {...state.clients[idx], ...payload};
+    toast("تم حفظ تعديلات العميل");
+  } else {
+    state.clients.push({ id:uid("cl"), ownerRole:CURRENT_ROLE, ...payload, createdAt:new Date().toISOString() });
+    toast("تم إضافة العميل");
+  }
+  saveState();
+  clientForm = null;
+  render();
+}
+
+function bindChequesReportEvents(){
+  const p = document.getElementById("btnPrintChqReport");
+  if(p) p.addEventListener("click", ()=>printTable("chqReportTable","تقرير الشيكات"));
+  const xl = document.getElementById("btnExportChqExcel");
+  if(xl) xl.addEventListener("click", ()=>exportTableExcel("chqReportTable","تقرير_الشيكات"));
+  const wd = document.getElementById("btnExportChqWord");
+  if(wd) wd.addEventListener("click", ()=>exportTableWord("chqReportTable","تقرير الشيكات"));
+}
+function bindClientsReportEvents(){
+  const p = document.getElementById("btnPrintClientsReport");
+  if(p) p.addEventListener("click", ()=>printTable("clientsReportTable","تقرير العملاء"));
+  const xl = document.getElementById("btnExportClientsExcel");
+  if(xl) xl.addEventListener("click", ()=>exportTableExcel("clientsReportTable","تقرير_العملاء"));
+  const wd = document.getElementById("btnExportClientsWord");
+  if(wd) wd.addEventListener("click", ()=>exportTableWord("clientsReportTable","تقرير العملاء"));
+}
+
+/* ============================= SCREEN: RECEIPTS ARCHIVE (official, high-value) ============================= */
+function renderReceiptsScreen(){
+  const all = visCheques().slice().sort((a,b)=>b.seq-a.seq).map(chq=>({
+    chq, cl: state.clients.find(c=>c.id===chq.clientId)
+  }));
+
+  const q = (receiptsSearchState.q||"").trim().toLowerCase();
+  const rows = q ? all.filter(r=>{
+    return (r.cl?.name||"").toLowerCase().includes(q)
+        || (r.cl?.code||"").toLowerCase().includes(q)
+        || (r.chq.chequeNumber||"").toLowerCase().includes(q)
+        || (r.chq.bank||"").toLowerCase().includes(q);
+  }) : all;
+
+  const totalAmt = all.reduce((s,r)=>s+r.chq.amount,0);
+  const lastOne = all[0];
+
+  let html = `
+  <div class="archive-hero">
+    <div class="archive-hero-top">
+      <div class="archive-seal">۞</div>
+      <div>
+        <h2>السجل الرسمي لإيصالات استلام الشيكات</h2>
+        <div class="tagline">كل إيصال هنا وثيقة معتمدة باسم الشركة — يمكن استعراضه أو إعادة طباعته في أي وقت</div>
+      </div>
+    </div>
+    <div class="archive-kpis">
+      <div class="archive-kpi"><div class="lbl">عدد الإيصالات الصادرة</div><div class="val">${all.length}</div></div>
+      <div class="archive-kpi"><div class="lbl">إجمالي قيمة الشيكات الموثّقة</div><div class="val">${fmt(totalAmt)} <small>ر.ع</small></div></div>
+      <div class="archive-kpi"><div class="lbl">آخر إيصال صادر</div><div class="val" style="font-size:15px;">${lastOne ? "رقم "+String(lastOne.chq.seq).padStart(5,"0") : "—"}</div></div>
+    </div>
+    <div class="legal-blurb"><strong>ملحوظة:</strong> إيصال استلام الشيك مستند إثبات استلام فقط، ولا يعني تحصيل قيمته فعليًا من البنك؛ تبقى قيمته معلّقة حتى تاريخ استحقاقه وتحصيله.</div>
+  </div>
+
+  <div class="card">
+    <div class="toolbar">
+      <h2 style="margin:0;">جميع الإيصالات</h2>
+      <div class="grow"></div>
+      <input id="receiptsSearch" type="text" placeholder="ابحث بكود العميل، الاسم، رقم الشيك أو البنك…" style="max-width:320px;" value="${esc(receiptsSearchState.q||"")}">
+    </div>`;
+
+  if(all.length===0){
+    html += `<div class="empty"><div class="ico">🧾</div>لا توجد إيصالات صادرة بعد — سيظهر هنا كل إيصال فور تسجيل شيك جديد من شاشة «إدارة الشيكات».</div></div>`;
+    return html;
+  }
+  if(rows.length===0){
+    html += `<div class="empty"><div class="ico">🔎</div>لا توجد نتائج مطابقة لبحثك.</div></div>`;
+    return html;
+  }
+
+  html += `<div class="receipt-ledger">`;
+  html += rows.map(r=>{
+    const cl = r.cl;
+    return `
+    <div class="receipt-card">
+      <div class="rc-seq">${String(r.chq.seq).padStart(5,"0")}<small>رقم مرجعي</small></div>
+      <div class="rc-main">
+        <div class="rc-client">${esc(cl?.name||"عميل محذوف")} ${cl?`<span class="code">${esc(cl.code)}</span>`:""}</div>
+        <div class="rc-meta">شيك رقم ${esc(r.chq.chequeNumber)} — ${esc(r.chq.bank||"بنك غير محدد")} — استلم بتاريخ ${fmtDate(r.chq.receivedDate)}</div>
+      </div>
+      <div class="rc-amount">
+        <div class="v num">${fmt(r.chq.amount)}</div>
+        <div class="k">ريال عماني</div>
+      </div>
+      <div>${chequeStatusBadge(r.chq)}</div>
+      <div class="rc-actions no-print">
+        <button class="btn btn-brass btn-sm" data-reprint="${r.chq.id}" ${cl?"":"disabled"}>عرض وطباعة الإيصال</button>
+      </div>
+    </div>`;
+  }).join("");
+  html += `</div></div>`;
+  return html;
+}
+
+function bindReceiptsEvents(){
+  const search = document.getElementById("receiptsSearch");
+  if(search){
+    search.addEventListener("input", ()=>{
+      receiptsSearchState.q = search.value;
+      render();
+      const el = document.getElementById("receiptsSearch");
+      if(el){ el.focus(); el.selectionStart = el.selectionEnd = el.value.length; }
+    });
+  }
+  document.querySelectorAll("[data-reprint]").forEach(btn=>{
+    btn.addEventListener("click", ()=>reprintReceipt(btn.dataset.reprint));
+  });
+}
+
+function reprintReceipt(chequeId){
+  const chq = state.cheques.find(c=>c.id===chequeId);
+  if(!chq){ toast("تعذر العثور على الشيك"); return; }
+  const cl = state.clients.find(c=>c.id===chq.clientId);
+  if(!cl){ toast("بيانات العميل غير متوفرة لهذا الشيك"); return; }
+  const plan = buildPlan(cl);
+  const instItems = (chq.allocations||[]).map(a=>plan.find(i=>i.id===a.installmentId)).filter(Boolean);
+  openReceipt(chq, cl, instItems, true);
+}
+
+/* ============================= CONFIRM MODAL ============================= */
+function confirmModal(title, body, onConfirm){
+  const root = document.getElementById("modalRoot");
+  root.innerHTML = `
+  <div class="modal-bg" id="confirmBg">
+    <div class="modal">
+      <h3>${esc(title)}</h3>
+      <p>${esc(body)}</p>
+      <div class="modal-actions">
+        <button class="btn btn-danger" id="confirmYes">تأكيد الحذف</button>
+        <button class="btn btn-ghost" id="confirmNo">إلغاء</button>
+      </div>
+    </div>
+  </div>`;
+  document.getElementById("confirmYes").addEventListener("click", ()=>{ root.innerHTML=""; onConfirm(); });
+  document.getElementById("confirmNo").addEventListener("click", ()=>{ root.innerHTML=""; });
+  document.getElementById("confirmBg").addEventListener("click", e=>{ if(e.target.id==="confirmBg") root.innerHTML=""; });
+}
+
+/* ============================= RECEIPT ============================= */
+function openReceipt(cheque, client, instItems, isReprint){
+  const printArea = document.getElementById("printArea");
+
+  const yearPlans = client.yearPlans || [];
+  const yearsHtml = yearPlans.map((yp,idx)=>`
+    <tr>
+      <td>السنة ${arabicYear(idx+1)}</td>
+      <td class="num">${fmt(yp.amount||0)}</td>
+    </tr>`).join("");
+  const totalInstallments = yearPlans.reduce((s,yp)=>s+(yp.amount||0),0);
+
+  const allCheques = state.cheques.filter(c=>c.clientId===client.id).sort((a,b)=>a.seq-b.seq);
+  const totalReceived = allCheques.reduce((s,c)=>s+c.amount,0);
+  const totalChequesCount = allCheques.length;
+  const chequesHistoryHtml = allCheques.map(c=>{
+    const isCurrent = c.id===cheque.id;
+    const statusLabel = c.status==="collected" ? "تم التحصيل" : c.status==="bounced" ? "مرتد" : "قيد الانتظار";
+    return `
+    <tr${isCurrent ? ' style="background:var(--brass-soft);font-weight:700;"' : ''}>
+      <td class="num">${String(c.seq).padStart(5,"0")}${isCurrent ? " ★" : ""}</td>
+      <td class="num">${esc(c.chequeNumber)}</td>
+      <td>${esc(c.bank||"—")}</td>
+      <td class="num">${fmtDate(c.receivedDate)}</td>
+      <td class="num">${fmtDate(c.chequeDate)}</td>
+      <td class="num">${fmt(c.amount)}</td>
+      <td>${esc(statusLabel)}</td>
+    </tr>`;
+  }).join("");
+
+  printArea.innerHTML = `
+  <div class="receipt-doc">
+
+    <div class="receipt-page">
+      <div class="receipt-head">
+        <div>
+          <img src="${COMPANY_LOGO_DATA_URI}" alt="بن أرحب للتطوير العقاري" class="receipt-logo">
+          <h2>إيصال استلام شيك</h2>
+          <div class="co">قسم التسويق — إدارة المبيعات والعملاء</div>
+          <div class="co-details">
+            رقم السجل التجاري: 1811487 — ص.ب. 2435، الرمز البريدي 133، الخوير، سلطنة عمان<br>
+            محافظة مسقط / منطقة بوشر — الهاتف: +9689445559 — البريد الإلكتروني: info@binarha.om
+          </div>
+        </div>
+        <div class="receipt-no">
+          رقم مرجعي: ${String(cheque.seq).padStart(5,"0")}<br>
+          تاريخ الإصدار: ${fmtDate(todayISO())}
+        </div>
+      </div>
+
+      <div class="receipt-grid">
+        <div><span class="k">اسم العميل</span><span class="v">${esc(client.name)}</span></div>
+        <div><span class="k">كود العميل</span><span class="v">${esc(client.code)}</span></div>
+        <div><span class="k">اسم الوحدة</span><span class="v">${esc(client.unit)}</span></div>
+        <div><span class="k">رقم العقد</span><span class="v">${esc(client.contractNumber||"—")}</span></div>
+        <div><span class="k">تاريخ العقد</span><span class="v">${fmtDate(client.contractDate)}</span></div>
+        <div><span class="k">إجمالي قيمة الوحدة</span><span class="v">${fmt(client.unitPrice)} ريال عماني</span></div>
+        <div><span class="k">إجمالي عدد الشيكات المستلمة</span><span class="v">${totalChequesCount}</span></div>
+      </div>
+
+      <table class="receipt-table">
+        <thead><tr><th>السنة</th><th>إجمالي أقساط السنة</th></tr></thead>
+        <tbody>${yearsHtml}</tbody>
+        <tfoot><tr style="font-weight:700;"><td>الإجمالي</td><td class="num">${fmt(totalInstallments)}</td></tr></tfoot>
+      </table>
+
+      ${cheque.notes ? `<div><span class="k" style="display:block;margin-bottom:4px;">ملاحظات</span>${esc(cheque.notes)}</div>` : ""}
+    </div>
+
+    <div class="receipt-page receipt-page-break">
+      <div class="receipt-section-title">جميع الشيكات المسلّمة من العميل للشركة</div>
+      <table class="receipt-table">
+        <thead><tr><th>رقم مرجعي</th><th>رقم الشيك</th><th>البنك</th><th>تاريخ الاستلام</th><th>تاريخ الاستحقاق</th><th>القيمة</th><th>الحالة</th></tr></thead>
+        <tbody>${chequesHistoryHtml}</tbody>
+        <tfoot><tr style="font-weight:700;"><td colspan="5">إجمالي ما تم استلامه من شيكات</td><td class="num">${fmt(totalReceived)}</td><td></td></tr></tfoot>
+      </table>
+
+      <div class="receipt-sign">
+        <div class="line">توقيع المستلم — قسم التسويق</div>
+        <div class="line">توقيع العميل</div>
+      </div>
+
+      <div class="legal-note">
+        <strong>ملحوظة قانونية:</strong> هذا المستند لا يعني بأي حال من الأحوال أن الشركة قد حصلت فعليًا على هذه المبالغ نقدًا، وإنما يفيد فقط بأن الشركة استلمت من العميل الشيك/الشيكات المذكورة أعلاه، وتبقى قيمة كل شيك معلّقة حتى تاريخ استحقاقه وتحصيله الفعلي من البنك المسحوب عليه.
+      </div>
+    </div>
+
+  </div>`;
+
+  showReceiptModal(isReprint);
+}
+
+function showReceiptModal(isReprint){
+  const root = document.getElementById("modalRoot");
+  root.innerHTML = `
+  <div class="modal-bg no-print" id="receiptBg">
+    <div class="modal" style="max-width:640px;max-height:88vh;overflow-y:auto;">
+      <h3>${isReprint ? "الإيصال جاهز للاستعراض" : "تم تسجيل بيانات الشيك بنجاح"}</h3>
+      <p>إيصال استلام الشيكات جاهز للطباعة.</p>
+      <div class="modal-actions">
+        <button class="btn btn-brass" id="btnDoPrintReceipt">طباعة الإيصال</button>
+        <button class="btn btn-ghost" id="btnCloseReceipt">إغلاق</button>
+      </div>
+    </div>
+  </div>`;
+  document.getElementById("btnDoPrintReceipt").addEventListener("click", ()=>window.print());
+  document.getElementById("btnCloseReceipt").addEventListener("click", ()=>{ root.innerHTML=""; });
+  document.getElementById("receiptBg").addEventListener("click", e=>{ if(e.target.id==="receiptBg") root.innerHTML=""; });
+}
+
+/* Formal receipt issued when an amount is actually collected against a client's cheque
+   (via the "quick collect by client code" panel) — distinct from the cheque-receipt above,
+   which only documents that a cheque instrument was received, not that funds were collected. */
+function openCollectionReceipt(record, chq, client){
+  const printArea = document.getElementById("printArea");
+  const plan = buildPlan(client);
+  const instLabels = (chq.allocations||[]).map(a=>{
+    const inst = plan.find(i=>i.id===a.installmentId);
+    return inst ? inst.label : "";
+  }).filter(Boolean).join("، ") || "—";
+
+  const amountWords = numberToArabicWords(record.amount);
+  const diffNote = Math.abs(record.amount - chq.amount) > 0.5
+    ? `<div class="clarify-note">ملحوظة: يختلف المبلغ المحصَّل فعليًا (${fmt(record.amount)} ر.ع) عن القيمة الاسمية للشيك (${fmt(chq.amount)} ر.ع)، وقد تم تحديث سجلات العميل المحاسبية بناءً على المبلغ المحصَّل فعليًا الموضح أعلاه.</div>`
+    : "";
+
+  printArea.innerHTML = `
+  <div class="tc-wrap">
+    <div class="tc-frame">
+      <div class="tc-corner tl"><svg viewBox="0 0 40 40"><path d="M2 38 Q2 2 38 2" fill="none" stroke="#a9773c" stroke-width="2"/><circle cx="8" cy="30" r="2" fill="#a9773c"/><circle cx="30" cy="8" r="2" fill="#a9773c"/></svg></div>
+      <div class="tc-corner tr"><svg viewBox="0 0 40 40"><path d="M2 38 Q2 2 38 2" fill="none" stroke="#a9773c" stroke-width="2"/><circle cx="8" cy="30" r="2" fill="#a9773c"/><circle cx="30" cy="8" r="2" fill="#a9773c"/></svg></div>
+      <div class="tc-corner bl"><svg viewBox="0 0 40 40"><path d="M2 38 Q2 2 38 2" fill="none" stroke="#a9773c" stroke-width="2"/><circle cx="8" cy="30" r="2" fill="#a9773c"/><circle cx="30" cy="8" r="2" fill="#a9773c"/></svg></div>
+      <div class="tc-corner br"><svg viewBox="0 0 40 40"><path d="M2 38 Q2 2 38 2" fill="none" stroke="#a9773c" stroke-width="2"/><circle cx="8" cy="30" r="2" fill="#a9773c"/><circle cx="30" cy="8" r="2" fill="#a9773c"/></svg></div>
+      <div class="tc-watermark">نسخة أصلية</div>
+
+      <div class="tc-body">
+        <div class="tc-paid">تم التحصيل</div>
+        <img src="${COMPANY_LOGO_DATA_URI}" alt="بن أرحب للتطوير العقاري" class="tc-logo">
+        <div class="tc-ribbon">إيصال تحصيل رسمي</div>
+        <div class="tc-co">قسم التسويق — إدارة المبيعات والعملاء</div>
+        <div class="tc-co-details">
+          رقم السجل التجاري: 1811487 — ص.ب. 2435، الرمز البريدي 133، الخوير، سلطنة عمان<br>
+          محافظة مسقط / منطقة بوشر — الهاتف: +9689445559 — البريد الإلكتروني: info@binarha.om
+        </div>
+        <div class="tc-refno">رقم مرجعي: TC-${String(record.seq).padStart(5,"0")} &nbsp;|&nbsp; تاريخ الإصدار: ${fmtDate(todayISO())}</div>
+
+        <table class="tc-table">
+          <tr><td class="k">اسم العميل</td><td class="v">${esc(client.name)}</td><td class="k">كود العميل</td><td class="v">${esc(client.code)}</td></tr>
+          <tr><td class="k">اسم الوحدة</td><td class="v">${esc(client.unit)}</td><td class="k">رقم العقد</td><td class="v">${esc(client.contractNumber||"—")}</td></tr>
+          <tr><td class="k">البيان</td><td class="v" colspan="3">${esc(instLabels)}</td></tr>
+          <tr><td class="k">رقم الشيك</td><td class="v">${esc(chq.chequeNumber)}</td><td class="k">البنك المسحوب عليه</td><td class="v">${esc(chq.bank||"—")}</td></tr>
+          <tr><td class="k">تاريخ استحقاق الشيك</td><td class="v">${fmtDate(chq.chequeDate)}</td><td class="k">تاريخ التحصيل الفعلي</td><td class="v">${fmtDate(record.date)}</td></tr>
+          <tr><td class="k">طريقة التحصيل</td><td class="v" colspan="3">${esc(record.method)}</td></tr>
+        </table>
+
+        <div class="tc-amount">
+          <div class="figure">المبلغ المحصَّل: ${fmt(record.amount)} ريال عماني</div>
+          <div class="words">المبلغ كتابة: ${esc(amountWords)}</div>
+        </div>
+
+        ${diffNote}
+
+        <div class="tc-clarify">
+          <strong>توضيح محاسبي:</strong> تم تحصيل المبلغ الموضح أعلاه فعليًا وقيده في السجلات المحاسبية للشركة بتاريخ ${fmtDate(record.date)}، وتُعتبر الدفعة المرتبطة بالشيك رقم ${esc(chq.chequeNumber)} مسددة بالكامل من واقع هذا التحصيل، دون أثر على باقي مستحقات العميل الأخرى بموجب عقد البيع رقم ${esc(client.contractNumber||"—")}.
+        </div>
+
+        <div class="tc-foot">
+          <div class="tc-sign"><div class="line">توقيع المُحصِّل — قسم التسويق</div></div>
+          <div class="tc-seal">ختم واعتماد<br>الشركة</div>
+          <div class="tc-sign"><div class="line">توقيع/ختم العميل</div></div>
+        </div>
+
+        <div class="tc-legal">
+          <strong>ملحوظة قانونية:</strong> يُعد هذا الإيصال سندًا رسميًا صادرًا عن الشركة يُثبت التحصيل الفعلي للمبلغ الموضح أعلاه من العميل المذكور أعلاه، ويجوز الاحتجاج به قانونيًا كدليل قاطع على السداد. تحتفظ الشركة بنسخة من هذا الإيصال ضمن سجلاتها الرسمية.
+        </div>
+      </div>
+    </div>
+  </div>`;
+
+  showCollectionReceiptModal();
+}
+
+function showCollectionReceiptModal(){
+  const root = document.getElementById("modalRoot");
+  root.innerHTML = `
+  <div class="modal-bg no-print" id="collectionReceiptBg">
+    <div class="modal" style="max-width:640px;max-height:88vh;overflow-y:auto;">
+      <h3>تم تسجيل التحصيل بنجاح</h3>
+      <p>إيصال التحصيل جاهز للطباعة.</p>
+      <div class="modal-actions">
+        <button class="btn btn-brass" id="btnDoPrintCollection">طباعة الإيصال</button>
+        <button class="btn btn-ghost" id="btnCloseCollection">إغلاق</button>
+      </div>
+    </div>
+  </div>`;
+  document.getElementById("btnDoPrintCollection").addEventListener("click", ()=>window.print());
+  document.getElementById("btnCloseCollection").addEventListener("click", ()=>{ root.innerHTML=""; render(); });
+  document.getElementById("collectionReceiptBg").addEventListener("click", e=>{ if(e.target.id==="collectionReceiptBg"){ root.innerHTML=""; render(); } });
+}
+
+/* ============================= PRINT / EXPORT (reports) ============================= */
+function printTable(tableId, title){
+  const table = document.getElementById(tableId);
+  const printArea = document.getElementById("printArea");
+  printArea.innerHTML = `
+    <div style="padding:30px;font-family:${'var(--sans)'.length?'"IBM Plex Sans Arabic",Tahoma,sans-serif':''};direction:rtl;">
+      <h2 style="font-family:'Amiri',Georgia,serif;border-bottom:2px solid #a9773c;padding-bottom:10px;">${esc(title)}</h2>
+      <div style="font-size:12px;color:#666;margin-bottom:14px;">تاريخ الطباعة: ${fmtDate(todayISO())}</div>
+      ${table.outerHTML}
+    </div>`;
+  window.print();
+}
+
+function tableToAOA(tableId){
+  const table = document.getElementById(tableId);
+  const aoa = [];
+  table.querySelectorAll("tr").forEach(tr=>{
+    const row = [];
+    tr.querySelectorAll("th,td").forEach(cell=>row.push(cell.textContent.trim()));
+    aoa.push(row);
+  });
+  return aoa;
+}
+
+function exportTableExcel(tableId, filenameBase){
+  const aoa = tableToAOA(tableId);
+  // Build a minimal valid XLSX using SheetJS-free CSV-in-XLSX fallback isn't valid,
+  // so build actual XLSX XML via a tiny hand-rolled writer using the SheetJS CDN if present,
+  // otherwise fall back to CSV.
+  if(window.XLSX){
+    const ws = window.XLSX.utils.aoa_to_sheet(aoa);
+    const wb = window.XLSX.utils.book_new();
+    window.XLSX.utils.book_append_sheet(wb, ws, "تقرير");
+    window.XLSX.writeFile(wb, filenameBase+".xlsx");
+  } else {
+    // CSV fallback with BOM for Arabic support in Excel
+    const csv = aoa.map(row=>row.map(cell=>{
+      const v = String(cell).replace(/"/g,'""');
+      return /[",\n]/.test(v) ? `"${v}"` : v;
+    }).join(",")).join("\r\n");
+    const blob = new Blob(["\uFEFF"+csv], {type:"text/csv;charset=utf-8;"});
+    downloadBlob(blob, filenameBase+".csv");
+  }
+}
+
+function exportTableWord(tableId, title){
+  const table = document.getElementById(tableId);
+  const html = `<!DOCTYPE html><html dir="rtl" lang="ar"><head><meta charset="utf-8">
+    <style>
+      body{font-family:Arial, "Segoe UI", sans-serif;}
+      table{border-collapse:collapse;width:100%;}
+      th,td{border:1px solid #999;padding:6px 8px;text-align:right;font-size:13px;}
+      th{background:#eee;}
+      h2{font-family:Georgia,serif;}
+    </style></head>
+    <body dir="rtl">
+      <h2>${esc(title)}</h2>
+      <p style="font-size:12px;color:#555;">تاريخ التصدير: ${fmtDate(todayISO())}</p>
+      ${table.outerHTML}
+    </body></html>`;
+  const blob = new Blob(['\ufeff', html], {type:"application/msword;charset=utf-8"});
+  downloadBlob(blob, title.replace(/\s+/g,"_")+".doc");
+}
+
+function downloadBlob(blob, filename){
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(url), 2000);
+}
+
+/* ============================= INIT ============================= */
+boot();
+
+})();
+</script>
+
+<!-- SheetJS for proper .xlsx export. Falls back to CSV automatically if offline. -->
+<script src="./index_files/xlsx.full.min.js.download"></script>
+
+
+</body></html>
